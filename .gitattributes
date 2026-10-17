@@ -1,0 +1,5 @@
+# Keep generated inventories, scripts and documentation identical across checkouts.
+* text=auto eol=lf
+
+# Synthetic binary fixtures must never undergo text conversion.
+*.png binary

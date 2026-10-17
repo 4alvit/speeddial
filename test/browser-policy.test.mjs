@@ -2,6 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
+import os from 'node:os';
+import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { linuxInventory } from '../scripts/browser-matrix.mjs';
 
@@ -42,5 +44,31 @@ test('every selected browser generation uses its exact isolated package and lock
     for (const name of ['playwright', 'playwright-core']) {
       assert.equal(lock.packages[`node_modules/${name}`].version, row.playwright);
     }
+  }
+});
+
+
+test('Windows-style Git checkout preserves the strict generated inventory', () => {
+  const checkout = fs.mkdtempSync(path.join(os.tmpdir(), 'speeddial-checkout-'));
+  function command(file, args) {
+    const result = spawnSync(file, args, { cwd: checkout, encoding: 'utf8' });
+    assert.equal(result.status, 0, result.stderr || result.stdout || String(result.error));
+  }
+  try {
+    command('git', ['init', '--quiet']);
+    const files = ['.gitattributes', '.github/browser-compatibility.json',
+      '.github/browser-compatibility-linux.json', 'scripts/browser-matrix.mjs'];
+    for (const file of files) {
+      fs.mkdirSync(path.dirname(path.join(checkout, file)), { recursive: true });
+      fs.copyFileSync(path.join(root, file), path.join(checkout, file));
+    }
+    command('git', ['-c', 'core.autocrlf=false', 'add', '--', ...files]);
+    for (const file of files) fs.unlinkSync(path.join(checkout, file));
+    command('git', ['-c', 'core.autocrlf=true', 'checkout-index', '--all', '--force']);
+    const inventory = fs.readFileSync(path.join(checkout, '.github/browser-compatibility-linux.json'), 'utf8');
+    assert.equal(inventory.includes('\r'), false, 'Generated JSON must remain LF on Windows');
+    command(process.execPath, ['scripts/browser-matrix.mjs']);
+  } finally {
+    fs.rmSync(checkout, { recursive: true, force: true });
   }
 });
