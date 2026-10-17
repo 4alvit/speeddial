@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="720" viewBox="0 0 1120 720" role="img" aria-labelledby="title desc">
+<title id="title">From URL to a safe preview</title>
+<desc id="desc">Create, URL change or refresh queues a generation-tagged job in the parent. One Node worker thread initializes Playwright and captures through the restricted proxy without persistence writes. The parent saves only when the tile ID exists and its URL and generation still match.</desc>
+<defs>
+  <linearGradient id="header" x2="1" y2="1"><stop stop-color="#10223f"/><stop offset="1" stop-color="#283b68"/></linearGradient>
+  <linearGradient id="accent"><stop stop-color="#38bdf8"/><stop offset="0.5" stop-color="#a78bfa"/><stop offset="1" stop-color="#34d399"/></linearGradient>
+  <marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M1 1 L8 4.5 L1 8" fill="none" stroke="#64748b" stroke-width="1.5"/></marker>
+</defs>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#172b46} .heading{font-weight:700} .muted{fill:#475569} .white{fill:#ffffff} .line{fill:none;stroke:#64748b;stroke-width:2;marker-end:url(#arrow);stroke-linejoin:round}</style>
+<rect width="1120" height="720" rx="20" fill="#f4f7fc"/>
+<path d="M20 0 H1100 Q1120 0 1120 20 V122 H0 V20 Q0 0 20 0" fill="url(#header)"/>
+<rect y="118" width="1120" height="4" fill="url(#accent)"/>
+<text x="40" y="29" font-size="12" style="fill:#bfdbfe" font-weight="700" text-anchor="start">ALVIT  /  SPEED DIAL</text>
+<text x="40" y="69" font-size="29" style="fill:#ffffff" font-weight="700" text-anchor="start">From URL to a safe preview</text>
+<text x="40" y="99" font-size="16" style="fill:#dbeafe" font-weight="400" text-anchor="start">Capture off the HTTP thread; the parent validates and persists the result.</text>
+<rect x="40" y="165" width="300" height="130" rx="14" fill="#eff6ff" stroke="#d8e2ef"/>
+<rect x="40" y="183" width="4" height="94" rx="2" fill="#2563eb" stroke="none"/>
+<text x="60" y="197" font-size="19" style="fill:#172b46" font-weight="700" text-anchor="start">Queue in HTTP thread</text>
+<text x="60" y="225" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Create / change / refresh</text>
+<text x="60" y="247" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">New generation; mark pending</text>
+<text x="60" y="269" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">One capture at a time</text>
+<rect x="410" y="165" width="300" height="130" rx="14" fill="#f5f3ff" stroke="#d8e2ef"/>
+<rect x="410" y="183" width="4" height="94" rx="2" fill="#7c3aed" stroke="none"/>
+<text x="430" y="197" font-size="19" style="fill:#172b46" font-weight="700" text-anchor="start">Node worker thread</text>
+<text x="430" y="225" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Import Playwright off-thread</text>
+<text x="430" y="247" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Restricted public-web proxy</text>
+<text x="430" y="269" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">JPEG bytes or capture error</text>
+<rect x="780" y="165" width="300" height="130" rx="14" fill="#fffbeb" stroke="#d8e2ef"/>
+<rect x="780" y="183" width="4" height="94" rx="2" fill="#b45309" stroke="none"/>
+<text x="800" y="197" font-size="19" style="fill:#172b46" font-weight="700" text-anchor="start">Parent: read current tile</text>
+<text x="800" y="225" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">The user may have edited it</text>
+<text x="800" y="247" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">An upload may have replaced it</text>
+<text x="800" y="269" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">The tile may have been deleted</text>
+<path d="M340 230 H410" class="line"/>
+<path d="M710 230 H780" class="line"/>
+<path d="M930 295 V335 H560 V380" class="line"/>
+<rect x="410" y="380" width="300" height="112" rx="14" fill="#f5f3ff" stroke="#d8e2ef"/>
+<rect x="410" y="398" width="4" height="76" rx="2" fill="#7c3aed" stroke="none"/>
+<text x="430" y="412" font-size="19" style="fill:#172b46" font-weight="700" text-anchor="start">Parent: same tile version?</text>
+<text x="430" y="440" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">ID exists + URL matches</text>
+<text x="430" y="462" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Generation is unchanged</text>
+<rect x="40" y="380" width="300" height="112" rx="14" fill="#fff1f2" stroke="#d8e2ef"/>
+<rect x="40" y="398" width="4" height="76" rx="2" fill="#be123c" stroke="none"/>
+<text x="60" y="412" font-size="19" style="fill:#172b46" font-weight="700" text-anchor="start">Discard obsolete work</text>
+<text x="60" y="440" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Keep the newer user change</text>
+<text x="60" y="462" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Do not replace its preview</text>
+<path d="M410 436 H340" class="line"/>
+<text x="375" y="423" font-size="13" style="fill:#172b46" font-weight="400" text-anchor="middle">No</text>
+<rect x="410" y="550" width="300" height="118" rx="14" fill="#ecfdf5" stroke="#d8e2ef"/>
+<rect x="410" y="568" width="4" height="82" rx="2" fill="#0f766e" stroke="none"/>
+<text x="430" y="582" font-size="19" style="fill:#172b46" font-weight="700" text-anchor="start">Parent: persist result</text>
+<text x="430" y="610" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Success: image + ready</text>
+<text x="430" y="632" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Failure: keep image + error</text>
+<text x="430" y="654" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Increment board revision</text>
+<path d="M560 492 V550" class="line"/>
+<text x="576" y="525" font-size="13" style="fill:#172b46" font-weight="400" text-anchor="start">Yes</text>
+<rect x="780" y="380" width="300" height="220" rx="14" fill="#fffbeb" stroke="#d8e2ef"/>
+<rect x="780" y="398" width="4" height="184" rx="2" fill="#b45309" stroke="none"/>
+<text x="800" y="412" font-size="19" style="fill:#172b46" font-weight="700" text-anchor="start">Preview rules</text>
+<text x="800" y="440" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">A changed URL clears its</text>
+<text x="800" y="462" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">previous image immediately.</text>
+<text x="800" y="484" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start"></text>
+<text x="800" y="506" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">A failed manual refresh</text>
+<text x="800" y="528" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">retains the existing image.</text>
+<text x="800" y="550" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">A newer upload wins.</text>
+<text x="40" y="700" font-size="12" style="fill:#475569" font-weight="400" text-anchor="start">Configured navigation and capture timeouts are limits, not measured performance or latency guarantees.</text>
+</svg>

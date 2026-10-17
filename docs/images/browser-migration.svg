@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="660" viewBox="0 0 1100 660" role="img" aria-labelledby="title desc">
+  <title id="title">Private board migration, separate public app</title>
+  <desc id="desc">The authorized private workflow collects a consistent source snapshot and image bytes, validates a complete JSON backup, and imports it into the intended browser at the primary app address. A reload and private export comparison verify the result. Public hosting serves only application code; another browser profile starts empty. No private board data is uploaded.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#64748b"/></marker></defs>
+  <rect width="1100" height="660" rx="20" fill="#f8fafc"/>
+  <g font-family="system-ui,sans-serif" fill="#0f172a">
+    <text x="35" y="49" font-size="26" font-weight="700">Move the board privately. Keep hosting code-only.</text>
+    <text x="35" y="79" font-size="15" fill="#475569">Synthetic workflow — no personal links, images, IDs or private file paths</text>
+    <rect x="25" y="103" width="1050" height="349" rx="16" fill="#eff6ff" stroke="#93c5fd"/>
+    <text x="46" y="136" font-size="15" font-weight="700" fill="#1d4ed8">AUTHORIZED PRIVATE DATA TRANSFER</text>
+    <rect x="45" y="159" width="282" height="137" rx="12" fill="#fff" stroke="#60a5fa"/>
+    <rect x="408" y="159" width="282" height="137" rx="12" fill="#fff" stroke="#a78bfa"/>
+    <rect x="771" y="159" width="282" height="137" rx="12" fill="#fff" stroke="#34d399"/>
+    <text x="65" y="190" font-size="18" font-weight="700">1. Preserve source</text>
+    <text x="65" y="218" font-size="14">Consistent source snapshot</text>
+    <text x="65" y="243" font-size="14">Referenced image bytes</text>
+    <text x="65" y="268" font-size="14" fill="#475569">Keep destination rescue copy</text>
+    <text x="428" y="190" font-size="18" font-weight="700">2. Validate backup</text>
+    <text x="428" y="218" font-size="14">Ordered links + settings</text>
+    <text x="428" y="243" font-size="14">Complete raster image data</text>
+    <text x="428" y="268" font-size="14" fill="#475569">Private, unencrypted JSON</text>
+    <text x="791" y="190" font-size="18" font-weight="700">3. Import in real browser</text>
+    <text x="791" y="218" font-size="14">Primary app address</text>
+    <text x="791" y="243" font-size="14">Intended browser profile</text>
+    <text x="791" y="268" font-size="14" fill="#475569">Preview + confirm replacement</text>
+    <path d="M330 225H398" fill="none" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/><path d="M693 225H761" fill="none" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="408" y="329" width="645" height="97" rx="12" fill="#ecfdf5" stroke="#34d399"/>
+    <text x="428" y="359" font-size="18" font-weight="700">4. Verify after reload</text>
+    <text x="428" y="385" font-size="14">Export and compare order, settings and image bytes privately.</text>
+    <text x="428" y="408" font-size="14" fill="#475569">Keep protected backups. Imported copies do not synchronize.</text>
+    <path d="M912 299V320" fill="none" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <text x="65" y="359" font-size="14" fill="#1d4ed8">No deployment is needed</text>
+    <text x="65" y="382" font-size="14" fill="#1d4ed8">to populate a local board.</text>
+    <rect x="25" y="477" width="1050" height="148" rx="16" fill="#fff7ed" stroke="#fdba74"/>
+    <text x="46" y="509" font-size="15" font-weight="700" fill="#9a3412">PUBLIC HOSTING — APPLICATION CODE ONLY</text>
+    <text x="46" y="542" font-size="17" font-weight="700">Primary address: speedial.alvit.here.now</text>
+    <text x="46" y="570" font-size="14">A different visitor or clean profile starts with an empty board.</text>
+    <text x="46" y="597" font-size="14" fill="#475569">Other origins have separate storage. A public URL or local ID does not reveal another board.</text>
+  </g>
+</svg>

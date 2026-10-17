@@ -1,0 +1,34 @@
+node_modules
+data
+.git
+legacy/source
+legacy/public-source
+legacy/*.tar.gz
+legacy/provenance.json
+deploy
+test
+*.log
+
+# Repository administration is not application build input.
+infrastructure
+
+# Documentation and development tooling are not runtime assets.
+.github
+docs
+wiki
+scripts
+README*.md
+CONTRIBUTING.md
+SECURITY.md
+CHANGELOG.md
+.env
+.env.*
+
+# No personal seeds, images or runtime credentials enter the build context.
+legacy
+secrets
+private
+backups
+local
+dist
+.herenow

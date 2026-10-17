@@ -1,0 +1,28 @@
+{
+  "name": "alvit-speeddial",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "backup:browser": "node scripts/backup-browser.mjs",
+    "restore:browser": "node scripts/restore-browser.mjs",
+    "start": "node server.mjs",
+    "test": "node --test test/*.test.mjs",
+    "check": "node --check server.mjs && node --check access.mjs && node --check initial-state.mjs && node --check scripts/verify-access.mjs && node --check public/app.js && node --check public/i18n.js && node --check local/app.js && node --check local/i18n.js && node --check local/storage.js && node scripts/check-docs.mjs && npm test",
+    "test:browser": "node test/frontend-smoke.mjs",
+    "build:local": "node scripts/build-local.mjs",
+    "test:local": "node test/local-browser-smoke.mjs"
+  },
+  "dependencies": {
+    "playwright-core": "1.56.1"
+  },
+  "description": "Browser-local Speed Dial with portable backups, multilingual settings, and optional self-hosted deployment",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/4alvit/speeddial.git"
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "tiles": [
+    {
+      "id": "example-1",
+      "title": "Example site 1",
+      "url": "https://example.com/site/1",
+      "image": "/legacy/images/example.png"
+    },
+    {
+      "id": "example-2",
+      "title": "Example site 2",
+      "url": "https://example.org/site/2",
+      "image": "/legacy/images/example.png"
+    },
+    {
+      "id": "example-3",
+      "title": "Example site 3",
+      "url": "https://example.com/site/3",
+      "image": "/legacy/images/example.png"
+    },
+    {
+      "id": "example-4",
+      "title": "Example site 4",
+      "url": "https://example.org/site/4",
+      "image": "/legacy/images/example.png"
+    },
+    {
+      "id": "example-5",
+      "title": "Example site 5",
+      "url": "https://example.com/site/5",
+      "image": "/legacy/images/example.png"
+    },
+    {
+      "id": "example-6",
+      "title": "Example site 6",
+      "url": "https://example.org/site/6",
+      "image": "/legacy/images/example.png"
+    },
+    {
+      "id": "example-7",
+      "title": "Example site 7",
+      "url": "https://example.com/site/7",
+      "image": "/legacy/images/example.png"
+    },
+    {
+      "id": "example-8",
+      "title": "Example site 8",
+      "url": "https://example.org/site/8",
+      "image": "/legacy/images/example.png"
+    },
+    {
+      "id": "example-9",
+      "title": "Example site 9",
+      "url": "https://example.com/site/9",
+      "image": "/legacy/images/example.png"
+    },
+    {
+      "id": "example-10",
+      "title": "Example site 10",
+      "url": "https://example.org/site/10",
+      "image": "/legacy/images/example.png"
+    },
+    {
+      "id": "example-11",
+      "title": "Example site 11",
+      "url": "https://example.com/site/11",
+      "image": "/legacy/images/example.png"
+    },
+    {
+      "id": "example-12",
+      "title": "Example site 12",
+      "url": "https://example.org/site/12",
+      "image": "/legacy/images/example.png"
+    },
+    {
+      "id": "example-13",
+      "title": "Example site 13",
+      "url": "https://example.com/site/13",
+      "image": "/legacy/images/example.png"
+    },
+    {
+      "id": "example-14",
+      "title": "Example site 14",
+      "url": "https://example.org/site/14",
+      "image": "/legacy/images/example.png"
+    },
+    {
+      "id": "example-15",
+      "title": "Example site 15",
+      "url": "https://example.com/site/15",
+      "image": "/legacy/images/example.png"
+    },
+    {
+      "id": "example-16",
+      "title": "Example site 16",
+      "url": "https://example.org/site/16",
+      "image": "/legacy/images/example.png"
+    },
+    {
+      "id": "example-17",
+      "title": "Example site 17",
+      "url": "https://example.com/site/17",
+      "image": "/legacy/images/example.png"
+    },
+    {
+      "id": "example-18",
+      "title": "Example site 18",
+      "url": "https://example.org/site/18",
+      "image": "/legacy/images/example.png"
+    },
+    {
+      "id": "example-19",
+      "title": "Example site 19",
+      "url": "https://example.com/site/19",
+      "image": "/legacy/images/example.png"
+    },
+    {
+      "id": "example-20",
+      "title": "Example site 20",
+      "url": "https://example.org/site/20",
+      "image": "/legacy/images/example.png"
+    }
+  ]
+}

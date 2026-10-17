@@ -1,0 +1,83 @@
+[
+  {
+    "id": "ubuntu-latest-chromium-1-64-0",
+    "os": "ubuntu-latest",
+    "engine": "chromium",
+    "playwright": "1.64.0",
+    "browser_version": "156.0.8078.4",
+    "toolchain": "tools/browser-compatibility/playwright-1-64-0",
+    "tier": "required"
+  },
+  {
+    "id": "ubuntu-latest-firefox-1-64-0",
+    "os": "ubuntu-latest",
+    "engine": "firefox",
+    "playwright": "1.64.0",
+    "browser_version": "157.0",
+    "toolchain": "tools/browser-compatibility/playwright-1-64-0",
+    "tier": "required"
+  },
+  {
+    "id": "ubuntu-latest-webkit-1-64-0",
+    "os": "ubuntu-latest",
+    "engine": "webkit",
+    "playwright": "1.64.0",
+    "browser_version": "27.2",
+    "toolchain": "tools/browser-compatibility/playwright-1-64-0",
+    "tier": "required"
+  },
+  {
+    "id": "ubuntu-latest-chromium-1-63-0",
+    "os": "ubuntu-latest",
+    "engine": "chromium",
+    "playwright": "1.63.0",
+    "browser_version": "153.0.8010.12",
+    "toolchain": "tools/browser-compatibility/playwright-1-63-0",
+    "tier": "extended"
+  },
+  {
+    "id": "ubuntu-latest-firefox-1-63-0",
+    "os": "ubuntu-latest",
+    "engine": "firefox",
+    "playwright": "1.63.0",
+    "browser_version": "155.0",
+    "toolchain": "tools/browser-compatibility/playwright-1-63-0",
+    "tier": "extended"
+  },
+  {
+    "id": "ubuntu-latest-webkit-1-63-0",
+    "os": "ubuntu-latest",
+    "engine": "webkit",
+    "playwright": "1.63.0",
+    "browser_version": "26.6",
+    "toolchain": "tools/browser-compatibility/playwright-1-63-0",
+    "tier": "extended"
+  },
+  {
+    "id": "ubuntu-latest-chromium-1-62-1",
+    "os": "ubuntu-latest",
+    "engine": "chromium",
+    "playwright": "1.62.1",
+    "browser_version": "151.0.7922.34",
+    "toolchain": "tools/browser-compatibility/playwright-1-62-1",
+    "tier": "extended"
+  },
+  {
+    "id": "ubuntu-latest-firefox-1-62-1",
+    "os": "ubuntu-latest",
+    "engine": "firefox",
+    "playwright": "1.62.1",
+    "browser_version": "153.0",
+    "toolchain": "tools/browser-compatibility/playwright-1-62-1",
+    "tier": "extended"
+  },
+  {
+    "id": "ubuntu-latest-webkit-1-62-1",
+    "os": "ubuntu-latest",
+    "engine": "webkit",
+    "playwright": "1.62.1",
+    "browser_version": "26.5",
+    "toolchain": "tools/browser-compatibility/playwright-1-62-1",
+    "tier": "extended"
+  }
+]

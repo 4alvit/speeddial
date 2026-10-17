@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="750" viewBox="0 0 1120 750" role="img" aria-labelledby="title desc">
+<title id="title">Public source, private data</title>
+<desc id="desc">The public speeddial repository contains source, tests, docs and generic deployment files. The speeddial-private repository contains private operations and pins public source without duplicating application code. Browser data remains in each profile; server data and credentials remain in protected storage.</desc>
+<defs>
+  <linearGradient id="header" x2="1" y2="1"><stop stop-color="#10223f"/><stop offset="1" stop-color="#283b68"/></linearGradient>
+  <linearGradient id="accent"><stop stop-color="#38bdf8"/><stop offset="0.5" stop-color="#a78bfa"/><stop offset="1" stop-color="#34d399"/></linearGradient>
+  <marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M1 1 L8 4.5 L1 8" fill="none" stroke="#64748b" stroke-width="1.5"/></marker>
+</defs>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#172b46} .heading{font-weight:700} .muted{fill:#475569} .white{fill:#ffffff} .line{fill:none;stroke:#64748b;stroke-width:2;marker-end:url(#arrow);stroke-linejoin:round}</style>
+<rect width="1120" height="750" rx="20" fill="#f4f7fc"/>
+<path d="M20 0 H1100 Q1120 0 1120 20 V122 H0 V20 Q0 0 20 0" fill="url(#header)"/>
+<rect y="118" width="1120" height="4" fill="url(#accent)"/>
+<text x="40" y="29" font-size="12" style="fill:#bfdbfe" font-weight="700" text-anchor="start">ALVIT  /  SPEED DIAL</text>
+<text x="40" y="69" font-size="29" style="fill:#ffffff" font-weight="700" text-anchor="start">Public source, private data</text>
+<text x="40" y="99" font-size="16" style="fill:#dbeafe" font-weight="400" text-anchor="start">One application codebase supplies browser builds and private server deployments.</text>
+<rect x="40" y="165" width="320" height="186" rx="14" fill="#eff6ff" stroke="#d8e2ef"/>
+<rect x="40" y="183" width="4" height="150" rx="2" fill="#2563eb" stroke="none"/>
+<text x="60" y="197" font-size="19" style="fill:#172b46" font-weight="700" text-anchor="start">speeddial · public source</text>
+<text x="60" y="225" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Browser + server application</text>
+<text x="60" y="247" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Tests, five languages and docs</text>
+<text x="60" y="269" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Dockerfile + Kubernetes base</text>
+<text x="60" y="291" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Clean history; synthetic fixtures</text>
+<text x="60" y="313" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">UNLICENSED source visibility</text>
+<rect x="400" y="165" width="320" height="186" rx="14" fill="#f5f3ff" stroke="#d8e2ef"/>
+<rect x="400" y="183" width="4" height="150" rx="2" fill="#7c3aed" stroke="none"/>
+<text x="420" y="197" font-size="19" style="fill:#172b46" font-weight="700" text-anchor="start">speeddial-private · operations</text>
+<text x="420" y="225" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Pinned public commit or image</text>
+<text x="420" y="247" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Private deployment overlays</text>
+<text x="420" y="269" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Recovery and acceptance records</text>
+<text x="420" y="291" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Historical private Git material</text>
+<text x="420" y="313" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">No duplicate application code</text>
+<rect x="760" y="165" width="320" height="186" rx="14" fill="#ecfdf5" stroke="#d8e2ef"/>
+<rect x="760" y="183" width="4" height="150" rx="2" fill="#0f766e" stroke="none"/>
+<text x="780" y="197" font-size="19" style="fill:#172b46" font-weight="700" text-anchor="start">Protected runtime storage</text>
+<text x="780" y="225" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Browser: per-profile IndexedDB</text>
+<text x="780" y="247" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Server: SQLite + image volume</text>
+<text x="780" y="269" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">External access credentials</text>
+<text x="780" y="291" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Local or protected backups</text>
+<text x="780" y="313" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">No personal data in public code</text>
+<path d="M360 255 H400" class="line"/>
+<path d="M720 255 H760" class="line"/>
+<rect x="40" y="420" width="500" height="220" rx="14" fill="#ecfdf5" stroke="#d8e2ef"/>
+<rect x="40" y="438" width="4" height="184" rx="2" fill="#0f766e" stroke="none"/>
+<text x="60" y="452" font-size="19" style="fill:#172b46" font-weight="700" text-anchor="start">Browser-local edition</text>
+<text x="60" y="480" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Publish only the frontend build allowlist</text>
+<text x="60" y="502" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">A new browser profile starts empty</text>
+<text x="60" y="524" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Upload or paste images; no remote capture</text>
+<text x="60" y="546" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Explicit full backup export and import</text>
+<text x="60" y="568" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">App updates do not synchronize boards</text>
+<rect x="580" y="420" width="500" height="220" rx="14" fill="#fffbeb" stroke="#d8e2ef"/>
+<rect x="580" y="438" width="4" height="184" rx="2" fill="#b45309" stroke="none"/>
+<text x="600" y="452" font-size="19" style="fill:#172b46" font-weight="700" text-anchor="start">Self-hosted edition</text>
+<text x="600" y="480" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Pin public source and verify the image</text>
+<text x="600" y="502" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Keep private configuration outside the build</text>
+<text x="600" y="524" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Use one writer per SQLite data volume</text>
+<text x="600" y="546" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Rehearse recovery before migration</text>
+<text x="600" y="568" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Verify the actual target after deployment</text>
+<text x="40" y="730" font-size="12" style="fill:#475569" font-weight="400" text-anchor="start">Architecture boundaries, not live deployment status. Private Git history and personal backups never enter public releases.</text>
+</svg>

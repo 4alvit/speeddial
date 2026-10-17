@@ -1,0 +1,37 @@
+node_modules/
+data/
+.env
+*.log
+*.tfplan
+deploy/editor-password.txt
+deploy/*secret*.yaml
+
+# Local credentials, runtime artifacts, and recovered upstream archives.
+.env.*
+!.env.example
+.DS_Store
+*.tfstate
+*.tfstate.*
+legacy/source/
+legacy/public-source/
+legacy/*.tar.gz
+deploy/build-metadata.json
+
+# Terraform provider cache; state and saved plans are already excluded above.
+.terraform/
+
+# Synthetic browser diagnostics.
+.compatibility/
+# Operator-owned credentials and migration evidence.
+secrets/
+private/
+# Complete personal browser exports, rescue copies, and verification receipts.
+/backups/
+
+# Python tooling bytecode.
+__pycache__/
+*.py[cod]
+
+# Allowlisted public build and local publisher cache (never source or data).
+dist/
+.herenow/

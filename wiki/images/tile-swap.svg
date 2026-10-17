@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640" role="img" aria-labelledby="title desc">
+<title id="title">Swap two tiles, keep the rest</title>
+<desc id="desc">In a 4 by 5 grid, dragging tile 2 onto tile 7 swaps only those two positions. The other 18 tiles do not move. Numbers are synthetic identities for this illustration, not bookmark titles.</desc>
+<defs>
+  <linearGradient id="header" x2="1" y2="1"><stop stop-color="#10223f"/><stop offset="1" stop-color="#283b68"/></linearGradient>
+  <linearGradient id="accent"><stop stop-color="#38bdf8"/><stop offset="0.5" stop-color="#a78bfa"/><stop offset="1" stop-color="#34d399"/></linearGradient>
+  <marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M1 1 L8 4.5 L1 8" fill="none" stroke="#64748b" stroke-width="1.5"/></marker>
+</defs>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#172b46} .heading{font-weight:700} .muted{fill:#475569} .white{fill:#ffffff} .line{fill:none;stroke:#64748b;stroke-width:2;marker-end:url(#arrow);stroke-linejoin:round}</style>
+<rect width="1120" height="640" rx="20" fill="#f4f7fc"/>
+<path d="M20 0 H1100 Q1120 0 1120 20 V122 H0 V20 Q0 0 20 0" fill="url(#header)"/>
+<rect y="118" width="1120" height="4" fill="url(#accent)"/>
+<text x="40" y="29" font-size="12" style="fill:#bfdbfe" font-weight="700" text-anchor="start">ALVIT  /  SPEED DIAL</text>
+<text x="40" y="69" font-size="29" style="fill:#ffffff" font-weight="700" text-anchor="start">Swap two tiles, keep the rest</text>
+<text x="40" y="99" font-size="16" style="fill:#dbeafe" font-weight="400" text-anchor="start">Example: move column 2 in row 1 onto column 2 in row 2.</text>
+<text x="244" y="166" font-size="15" style="fill:#172b46" font-weight="700" text-anchor="middle">BEFORE</text>
+<text x="876" y="166" font-size="15" style="fill:#172b46" font-weight="700" text-anchor="middle">AFTER</text>
+<rect x="40" y="190" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="76" y="221" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">1</text>
+<rect x="124" y="190" width="72" height="48" rx="9" fill="#2563eb" stroke="#d8e2ef"/>
+<text x="160" y="221" font-size="19" style="fill:#ffffff" font-weight="700" text-anchor="middle">2</text>
+<rect x="208" y="190" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="244" y="221" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">3</text>
+<rect x="292" y="190" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="328" y="221" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">4</text>
+<rect x="376" y="190" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="412" y="221" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">5</text>
+<rect x="40" y="250" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="76" y="281" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">6</text>
+<rect x="124" y="250" width="72" height="48" rx="9" fill="#7c3aed" stroke="#d8e2ef"/>
+<text x="160" y="281" font-size="19" style="fill:#ffffff" font-weight="700" text-anchor="middle">7</text>
+<rect x="208" y="250" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="244" y="281" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">8</text>
+<rect x="292" y="250" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="328" y="281" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">9</text>
+<rect x="376" y="250" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="412" y="281" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">10</text>
+<rect x="40" y="310" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="76" y="341" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">11</text>
+<rect x="124" y="310" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="160" y="341" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">12</text>
+<rect x="208" y="310" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="244" y="341" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">13</text>
+<rect x="292" y="310" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="328" y="341" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">14</text>
+<rect x="376" y="310" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="412" y="341" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">15</text>
+<rect x="40" y="370" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="76" y="401" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">16</text>
+<rect x="124" y="370" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="160" y="401" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">17</text>
+<rect x="208" y="370" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="244" y="401" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">18</text>
+<rect x="292" y="370" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="328" y="401" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">19</text>
+<rect x="376" y="370" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="412" y="401" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">20</text>
+<rect x="672" y="190" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="708" y="221" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">1</text>
+<rect x="756" y="190" width="72" height="48" rx="9" fill="#7c3aed" stroke="#d8e2ef"/>
+<text x="792" y="221" font-size="19" style="fill:#ffffff" font-weight="700" text-anchor="middle">7</text>
+<rect x="840" y="190" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="876" y="221" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">3</text>
+<rect x="924" y="190" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="960" y="221" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">4</text>
+<rect x="1008" y="190" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="1044" y="221" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">5</text>
+<rect x="672" y="250" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="708" y="281" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">6</text>
+<rect x="756" y="250" width="72" height="48" rx="9" fill="#2563eb" stroke="#d8e2ef"/>
+<text x="792" y="281" font-size="19" style="fill:#ffffff" font-weight="700" text-anchor="middle">2</text>
+<rect x="840" y="250" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="876" y="281" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">8</text>
+<rect x="924" y="250" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="960" y="281" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">9</text>
+<rect x="1008" y="250" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="1044" y="281" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">10</text>
+<rect x="672" y="310" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="708" y="341" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">11</text>
+<rect x="756" y="310" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="792" y="341" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">12</text>
+<rect x="840" y="310" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="876" y="341" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">13</text>
+<rect x="924" y="310" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="960" y="341" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">14</text>
+<rect x="1008" y="310" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="1044" y="341" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">15</text>
+<rect x="672" y="370" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="708" y="401" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">16</text>
+<rect x="756" y="370" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="792" y="401" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">17</text>
+<rect x="840" y="370" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="876" y="401" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">18</text>
+<rect x="924" y="370" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="960" y="401" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">19</text>
+<rect x="1008" y="370" width="72" height="48" rx="9" fill="#ffffff" stroke="#d8e2ef"/>
+<text x="1044" y="401" font-size="19" style="fill:#475569" font-weight="700" text-anchor="middle">20</text>
+<path d="M478 305 H642" class="line"/>
+<text x="560" y="287" font-size="17" style="fill:#172b46" font-weight="700" text-anchor="middle">Swap 2 ↔ 7</text>
+<text x="560" y="351" font-size="14" style="fill:#172b46" font-weight="400" text-anchor="middle">Preview follows</text>
+<text x="560" y="372" font-size="14" style="fill:#172b46" font-weight="400" text-anchor="middle">the pointer</text>
+<rect x="40" y="475" width="1040" height="108" rx="14" fill="#ecfdf5" stroke="#d8e2ef"/>
+<rect x="40" y="493" width="4" height="72" rx="2" fill="#0f766e" stroke="none"/>
+<text x="60" y="507" font-size="19" style="fill:#172b46" font-weight="700" text-anchor="start">2 positions change · 18 stay put</text>
+<text x="60" y="535" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">The grid stays fixed during dragging. Drop on a tile to exchange the two identities.</text>
+<text x="60" y="557" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Dropping outside a tile or pressing Escape cancels; the keyboard can also swap positions.</text>
+<text x="40" y="620" font-size="12" style="fill:#475569" font-weight="400" text-anchor="start">Illustrative identities in the default 4 × 5 layout. Swapping does not insert a tile or shift its neighbours.</text>
+</svg>

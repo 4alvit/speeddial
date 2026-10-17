@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111313">
+  <meta name="color-scheme" content="dark">
+  <meta name="referrer" content="no-referrer">
+  <title data-i18n="appTitle">Speed Dial</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/app.css">
+  <script src="/i18n.js" defer></script>
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="m15 5 4 4M4 20l5-1L20 8a2.8 2.8 0 0 0-4-4L5 15l-1 5Z"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 10a8 8 0 1 0-1.7 7M20 4v6h-6"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8" cy="8" r="1"/><path d="m3 16 5-5 4 4 3-3 6 6"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V3m-5 5 5-5 5 5M4 15v5h16v-5"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7m4-7v7"/></symbol>
+    <symbol id="i-drag" viewBox="0 0 24 24"><circle cx="8" cy="5" r="1"/><circle cx="16" cy="5" r="1"/><circle cx="8" cy="12" r="1"/><circle cx="16" cy="12" r="1"/><circle cx="8" cy="19" r="1"/><circle cx="16" cy="19" r="1"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v13m-5-5 5 5 5-5M4 17v4h16v-4"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 7h9m4 0h3M4 17h3m4 0h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></symbol>
+  </svg>
+
+  <div class="header-strip">
+    <button id="header-toggle" class="header-toggle" type="button" aria-expanded="false" aria-controls="header-panel" aria-label="Show controls" data-i18n-aria-label="showControls" title="Show controls" data-i18n-title="showControls"><svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></button>
+  </div>
+  <main class="shell">
+    <div id="header-panel" hidden>
+      <header class="page-header">
+        <a id="home-link" class="brand" href="/" aria-label="Speed Dial home" data-i18n-aria-label="home">
+          <span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg></span>
+          <span class="brand-name">Speed Dial</span>
+        </a>
+        <div class="header-actions">
+          <button id="open-settings" class="button button-quiet" type="button"><svg class="icon" aria-hidden="true"><use href="#i-settings"/></svg><span data-i18n="settings">Settings</span></button>
+          <a id="export-data" class="button button-quiet" href="/api/export" download="speeddial-backup.json"><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg><span data-i18n="export">Export</span></a>
+          <button id="add-tile" class="button button-primary" type="button"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg><span data-i18n="addSite">Add site</span></button>
+        </div>
+      </header>
+      <p class="edit-help" data-i18n="help">Drag a thumbnail onto another to swap their positions. On touch screens, use its grip. The pencil edits a site.</p>
+    </div>
+    <section class="collection" aria-label="Saved sites" data-i18n-aria-label="savedSites">
+      <div id="loading" class="loading-state"><span class="spinner"></span><span data-i18n="loading">Loading your sites…</span></div>
+      <div id="load-error" class="empty-state" hidden><svg class="icon" aria-hidden="true"><use href="#i-refresh"/></svg><h2 data-i18n="loadFailed">Could not load your sites</h2><p id="load-error-message" data-i18n="connectionHint">Check your connection and try again.</p><button id="retry-load" class="button" type="button" data-i18n="retry">Retry</button></div>
+      <div id="grid-viewport" class="grid-viewport"><div id="grid" class="grid" role="list" aria-label="Saved sites" data-i18n-aria-label="savedSites" hidden></div></div>
+      <nav id="pagination" class="pagination" aria-label="Site pages" data-i18n-aria-label="sitePages" hidden>
+        <button id="previous-page" class="button button-quiet button-small" type="button" data-i18n="previous">Previous</button>
+        <span id="page-status" aria-live="polite">Page 1 of 1</span>
+        <button id="next-page" class="button button-quiet button-small" type="button" data-i18n="next">Next</button>
+      </nav>
+      <div id="empty-state" class="empty-state" hidden><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg><h2 id="empty-title" data-i18n="emptyTitle">Your sites will appear here</h2><p id="empty-description" data-i18n="emptyDescription">Add a link and a screenshot will appear automatically.</p><button id="empty-add" class="button button-primary" type="button" data-i18n="firstSite">Add your first site</button></div>
+    </section>
+    <p id="connection-status" class="connection-status" role="status" hidden data-i18n="connectionLost">Connection lost. Reconnecting…</p>
+  </main>
+
+  <dialog id="settings-dialog" class="modal settings-modal" aria-labelledby="settings-title">
+    <form id="settings-form" novalidate>
+      <div class="modal-header"><div><p class="eyebrow">SPEED DIAL</p><h2 id="settings-title" data-i18n="settings">Settings</h2></div><button class="icon-button" type="button" data-close="settings-dialog" aria-label="Close" data-i18n-aria-label="close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></div>
+      <div class="settings-fields">
+        <div><label class="field-label" for="layout-rows" data-i18n="rows">Rows</label><input id="layout-rows" class="text-input" name="rows" type="number" min="1" max="12" step="1" inputmode="numeric" required aria-describedby="layout-hint"></div>
+        <div><label class="field-label" for="layout-columns" data-i18n="columns">Columns</label><input id="layout-columns" class="text-input" name="columns" type="number" min="1" max="12" step="1" inputmode="numeric" required aria-describedby="layout-hint"></div>
+      </div>
+      <p id="layout-capacity" class="layout-capacity" aria-live="polite">20 sites per page</p>
+      <p id="layout-hint" class="field-hint" data-i18n="layoutHint">Choose 1–12 rows and columns. Extra sites appear on the next page. Columns stay fixed; narrow screens can scroll sideways.</p>
+      <label class="field-label" for="open-links-in" data-i18n="openLinksIn">Open links in</label>
+      <select id="open-links-in" name="openLinksIn" class="text-input">
+        <option value="same-window" data-i18n="sameWindow">Same window (default)</option>
+        <option value="new-window" data-i18n="newWindow">New window / tab</option>
+      </select>
+      <label class="field-label" for="language" data-i18n="language">Language</label>
+      <select id="language" name="language" class="text-input" aria-describedby="language-hint">
+        <option value="en" lang="en">English</option>
+        <option value="ru" lang="ru">Русский</option>
+        <option value="de" lang="de">Deutsch</option>
+        <option value="fr" lang="fr">Français</option>
+        <option value="es" lang="es">Español</option>
+      </select>
+      <p id="language-hint" class="field-hint" data-i18n="languageHint">Saved in this browser only. Rows, columns, and link settings are shared by all browsers.</p>
+      <p id="settings-error" class="form-error" role="alert" hidden></p>
+      <div class="modal-footer"><button class="button" type="button" data-close="settings-dialog" data-i18n="cancel">Cancel</button><button id="save-settings" class="button button-primary" type="submit" data-i18n="saveSettings">Save settings</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="editor-dialog" class="modal editor-modal" aria-labelledby="editor-title">
+    <form id="editor-form" novalidate>
+      <div class="modal-header"><div><p class="eyebrow">SPEED DIAL</p><h2 id="editor-title" data-i18n="addSite">Add site</h2></div><button class="icon-button" type="button" data-close="editor-dialog" aria-label="Close" data-i18n-aria-label="close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></div>
+      <label class="field-label" for="tile-url" data-i18n="websiteAddress">Website address</label><input id="tile-url" name="url" class="text-input" type="text" inputmode="url" placeholder="https://example.com" autocomplete="url" spellcheck="false" required maxlength="4096" aria-describedby="url-hint"><p id="url-hint" class="field-hint" data-i18n="urlHint">You can enter an address without https://.</p>
+      <label class="field-label" for="tile-title"><span data-i18n="name">Name</span> <span data-i18n="optional">optional</span></label><input id="tile-title" name="title" class="text-input" type="text" placeholder="For example, Mail" data-i18n-placeholder="namePlaceholder" maxlength="300" autocomplete="off">
+      <div id="new-preview-note" class="preview-note"><svg class="icon" aria-hidden="true"><use href="#i-image"/></svg><p><span data-i18n="previewNote">A screenshot will be added automatically.</span><br><span data-i18n="previewNoteHint">You can refresh it or upload your own image.</span></p></div>
+      <section id="preview-settings" class="preview-settings" aria-labelledby="preview-label" hidden>
+        <h3 id="preview-label" class="field-label" data-i18n="thumbnail">Thumbnail</h3>
+        <div class="preview-row"><div id="editor-preview" class="editor-preview"></div><div class="preview-controls"><button id="capture-tile" class="button button-small" type="button"><svg class="icon" aria-hidden="true"><use href="#i-refresh"/></svg><span data-i18n="refreshScreenshot">Refresh screenshot</span></button><button id="upload-tile" class="button button-small" type="button"><svg class="icon" aria-hidden="true"><use href="#i-upload"/></svg><span data-i18n="uploadImage">Upload image</span></button><input id="image-file" type="file" accept="image/png,image/jpeg,image/webp,image/gif" hidden><p class="field-hint" data-i18n="imageHint">PNG, JPG, WebP, or GIF · up to 5 MB</p></div></div>
+        <p id="preview-status" class="field-hint"></p>
+      </section>
+      <p id="editor-error" class="form-error" role="alert" hidden></p>
+      <div class="modal-footer editor-footer"><button id="delete-tile" class="button button-danger-quiet" type="button" hidden><svg class="icon" aria-hidden="true"><use href="#i-trash"/></svg><span data-i18n="delete">Delete</span></button><span class="footer-spacer"></span><button class="button" type="button" data-close="editor-dialog" data-i18n="cancel">Cancel</button><button id="save-tile" class="button button-primary" type="submit" data-i18n="addSite">Add site</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="delete-dialog" class="modal confirm-modal" aria-labelledby="delete-title" aria-describedby="delete-description">
+    <form id="delete-form"><div class="modal-header"><h2 id="delete-title" data-i18n="deleteTitle">Delete site?</h2><button class="icon-button" type="button" data-close="delete-dialog" aria-label="Close" data-i18n-aria-label="close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></div><p id="delete-description" class="modal-description"></p><p id="delete-error" class="form-error" role="alert" hidden></p><div class="modal-footer"><button class="button" type="button" data-close="delete-dialog" data-i18n="keepSite">Keep site</button><button class="button button-danger" type="submit" data-i18n="deleteSite">Delete site</button></div></form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden><span id="toast-message"></span><button id="toast-close" class="icon-button" type="button" aria-label="Dismiss notification" data-i18n-aria-label="dismiss"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></div>
+  <div id="announcer" class="sr-only" role="status" aria-live="polite"></div>
+</body>
+</html>

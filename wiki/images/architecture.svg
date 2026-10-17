@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="740" viewBox="0 0 1120 740" role="img" aria-labelledby="title desc">
+<title id="title">One board, external credentials</title>
+<desc id="desc">The browser reaches Node through a public ingress. The parent HTTP thread owns the serial queue and persistent writes. A Node worker thread initializes Playwright and captures through a restricted proxy, returning bytes or an error for parent version checks. Deployments supply their own private credentials and data.</desc>
+<defs>
+  <linearGradient id="header" x2="1" y2="1"><stop stop-color="#10223f"/><stop offset="1" stop-color="#283b68"/></linearGradient>
+  <linearGradient id="accent"><stop stop-color="#38bdf8"/><stop offset="0.5" stop-color="#a78bfa"/><stop offset="1" stop-color="#34d399"/></linearGradient>
+  <marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M1 1 L8 4.5 L1 8" fill="none" stroke="#64748b" stroke-width="1.5"/></marker>
+</defs>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#172b46} .heading{font-weight:700} .muted{fill:#475569} .white{fill:#ffffff} .line{fill:none;stroke:#64748b;stroke-width:2;marker-end:url(#arrow);stroke-linejoin:round}</style>
+<rect width="1120" height="740" rx="20" fill="#f4f7fc"/>
+<path d="M20 0 H1100 Q1120 0 1120 20 V122 H0 V20 Q0 0 20 0" fill="url(#header)"/>
+<rect y="118" width="1120" height="4" fill="url(#accent)"/>
+<text x="40" y="29" font-size="12" style="fill:#bfdbfe" font-weight="700" text-anchor="start">ALVIT  /  SPEED DIAL</text>
+<text x="40" y="69" font-size="29" style="fill:#ffffff" font-weight="700" text-anchor="start">One board, external credentials</text>
+<text x="40" y="99" font-size="16" style="fill:#dbeafe" font-weight="400" text-anchor="start">Self-hosted design: private data and access files stay outside source and images.</text>
+<rect x="40" y="160" width="270" height="135" rx="14" fill="#eff6ff" stroke="#d8e2ef"/>
+<rect x="40" y="178" width="4" height="99" rx="2" fill="#2563eb" stroke="none"/>
+<text x="60" y="192" font-size="19" style="fill:#172b46" font-weight="700" text-anchor="start">Browser</text>
+<text x="60" y="220" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Five interface languages</text>
+<text x="60" y="242" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Access token + signed cookie</text>
+<text x="60" y="264" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Language in localStorage</text>
+<rect x="425" y="160" width="270" height="135" rx="14" fill="#f5f3ff" stroke="#d8e2ef"/>
+<rect x="425" y="178" width="4" height="99" rx="2" fill="#7c3aed" stroke="none"/>
+<text x="445" y="192" font-size="19" style="fill:#172b46" font-weight="700" text-anchor="start">Public ingress</text>
+<text x="445" y="220" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Operator-managed HTTPS</text>
+<text x="445" y="242" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Optional private tunnel</text>
+<text x="445" y="264" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Forward to the service</text>
+<rect x="810" y="160" width="270" height="135" rx="14" fill="#eff6ff" stroke="#d8e2ef"/>
+<rect x="810" y="178" width="4" height="99" rx="2" fill="#2563eb" stroke="none"/>
+<text x="830" y="192" font-size="19" style="fill:#172b46" font-weight="700" text-anchor="start">Node HTTP thread</text>
+<text x="830" y="220" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Pages + JSON API</text>
+<text x="830" y="242" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Serial queue + version checks</text>
+<text x="830" y="264" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Only persistence writer</text>
+<path d="M310 227 H425" class="line"/>
+<path d="M695 227 H810" class="line"/>
+<rect x="40" y="380" width="270" height="130" rx="14" fill="#f5f3ff" stroke="#d8e2ef"/>
+<rect x="40" y="398" width="4" height="94" rx="2" fill="#7c3aed" stroke="none"/>
+<text x="60" y="412" font-size="19" style="fill:#172b46" font-weight="700" text-anchor="start">Capture worker thread</text>
+<text x="60" y="440" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Playwright initialization</text>
+<text x="60" y="462" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">JPEG bytes or capture error</text>
+<text x="60" y="484" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">No persistence writes</text>
+<rect x="425" y="380" width="270" height="130" rx="14" fill="#fffbeb" stroke="#d8e2ef"/>
+<rect x="425" y="398" width="4" height="94" rx="2" fill="#b45309" stroke="none"/>
+<text x="445" y="412" font-size="19" style="fill:#172b46" font-weight="700" text-anchor="start">Restricted proxy</text>
+<text x="445" y="440" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Pinned public IPv4</text>
+<text x="445" y="462" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">HTTP 80 / HTTPS 443</text>
+<text x="445" y="484" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Egress NetworkPolicy</text>
+<rect x="810" y="380" width="270" height="150" rx="14" fill="#ecfdf5" stroke="#d8e2ef"/>
+<rect x="810" y="398" width="4" height="114" rx="2" fill="#0f766e" stroke="none"/>
+<text x="830" y="412" font-size="19" style="fill:#172b46" font-weight="700" text-anchor="start">Persistent data</text>
+<text x="830" y="440" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">SQLite board + edit history</text>
+<text x="830" y="462" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Generated / uploaded images</text>
+<text x="830" y="484" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Migrated legacy images</text>
+<text x="830" y="506" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">No built-in private seed</text>
+<path d="M310 445 H425" class="line"/>
+<path d="M945 295 V380" class="line"/>
+<text x="959" y="374" font-size="13" style="fill:#172b46" font-weight="400" text-anchor="start">read / write</text>
+<path d="M890 295 V335 H175 V380" class="line"/>
+<text x="410" y="324" font-size="13" style="fill:#172b46" font-weight="400" text-anchor="start">enqueue capture</text>
+<path d="M260 380 V355 H1015 V295" class="line" stroke-dasharray="6 5"/>
+<text x="525" y="373" font-size="13" style="fill:#172b46" font-weight="400" text-anchor="start">JPEG / error to parent</text>
+<rect x="425" y="585" width="270" height="90" rx="14" fill="#f1f5f9" stroke="#d8e2ef"/>
+<rect x="425" y="603" width="4" height="54" rx="2" fill="#475569" stroke="none"/>
+<text x="445" y="617" font-size="19" style="fill:#172b46" font-weight="700" text-anchor="start">Public websites</text>
+<text x="445" y="645" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">No personal login cookies</text>
+<rect x="810" y="585" width="270" height="104" rx="14" fill="#fffbeb" stroke="#d8e2ef"/>
+<rect x="810" y="603" width="4" height="68" rx="2" fill="#b45309" stroke="none"/>
+<text x="830" y="617" font-size="19" style="fill:#172b46" font-weight="700" text-anchor="start">External credentials</text>
+<text x="830" y="645" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Token + signing-key files</text>
+<text x="830" y="667" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Read-only; rotate on restart</text>
+<path d="M560 510 V585" class="line"/>
+<path d="M1080 635 H1100 V228 H1080" class="line" stroke-dasharray="6 5"/>
+<text x="40" y="720" font-size="12" style="fill:#475569" font-weight="400" text-anchor="start">Logical topology only. Protected off-node data and credential backups remain an operator responsibility.</text>
+</svg>

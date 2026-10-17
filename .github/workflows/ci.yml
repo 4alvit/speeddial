@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 6 * * 2'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  browser-compatibility:
+    uses: victron-venus/venus-os-ci-toolkit/.github/workflows/typescript-ci.yml@9f82dae6eac27db5bd57e864a72010131a28107a
+    with:
+      node-version: '24'
+      run-node-ci: false
+      force-full: true
+      browser-matrix-file: ${{ (vars.CI_RUNNER_MODE == 'self-hosted' || vars.CI_RUNNER_MODE == 'k3s') && ((github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository) || (contains(fromJSON('["push","schedule","workflow_dispatch"]'), github.event_name) && github.ref == format('refs/heads/{0}', github.event.repository.default_branch))) && '.github/browser-compatibility-linux.json' || '.github/browser-compatibility.json' }}
+      browser-prepare-command: node scripts/browser-matrix.mjs && node --check test/frontend-smoke.mjs && node --check test/local-browser-smoke.mjs
+      browser-test-command: node test/frontend-smoke.mjs && node test/local-browser-smoke.mjs
+      browser-extended: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
+  application:
+    needs: browser-compatibility
+    if: ${{ !cancelled() }}
+    name: Application checks
+    # Canonical runner_selection.py CI profile; forks and non-default dispatch stay hosted.
+    runs-on: ${{ fromJSON((vars.CI_RUNNER_MODE == 'self-hosted' || vars.CI_RUNNER_MODE == 'k3s') && ((github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository) || (contains(fromJSON('["push","schedule","workflow_dispatch"]'), github.event_name) && github.ref == format('refs/heads/{0}', github.event.repository.default_branch))) && (vars.CI_RUNNER_LABELS || '[]') || '["ubuntu-latest"]') }}
+    timeout-minutes: 15
+    steps:
+      - name: Require all selected browser targets
+        env:
+          BROWSER_RESULT: ${{ needs.browser-compatibility.result }}
+        run: test "$BROWSER_RESULT" = success
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - name: Validate CI privilege boundaries
+        run: python3 -m unittest discover -s test -p 'test_ci_policy.py'

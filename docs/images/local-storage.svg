@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="540" viewBox="0 0 1000 540" role="img" aria-labelledby="title desc">
+  <title id="title">Public Speedial, separate local boards</title>
+  <desc id="desc">here.now serves the same public code to two browser profiles. Each stores its own empty-at-first board, settings and raster image blobs in IndexedDB. No board is uploaded. An intentional backup export and import is the only transfer shown.</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#475569"/></marker></defs>
+  <rect width="1000" height="540" rx="18" fill="#f8fafc"/>
+  <g font-family="Arial,Helvetica,sans-serif" fill="#172b46">
+    <text x="40" y="50" font-size="28" font-weight="700">One public app. Separate browser data.</text>
+    <text x="40" y="80" font-size="16" fill="#475569">Local edition: no shared board API, cloud sync or automatic screenshot requests.</text>
+    <rect x="325" y="115" width="350" height="80" rx="10" fill="#e0f2fe" stroke="#0284c7"/>
+    <text x="500" y="148" text-anchor="middle" font-size="20" font-weight="700">here.now / public app code</text>
+    <text x="500" y="174" text-anchor="middle" font-size="15">HTML · CSS · JavaScript · five languages</text>
+    <g fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"><path d="M420 195L245 250"/><path d="M580 195L755 250"/></g>
+    <text x="310" y="221" font-size="14">code only</text><text x="635" y="221" font-size="14">code only</text>
+    <rect x="55" y="255" width="390" height="160" rx="12" fill="#ecfdf5" stroke="#059669"/>
+    <rect x="555" y="255" width="390" height="160" rx="12" fill="#f5f3ff" stroke="#7c3aed"/>
+    <text x="80" y="290" font-size="21" font-weight="700">Browser profile A</text>
+    <text x="580" y="290" font-size="21" font-weight="700">Browser profile B</text>
+    <text x="80" y="326" font-size="17">IndexedDB: A's board + image bytes</text>
+    <text x="580" y="326" font-size="17">IndexedDB: B's board + image bytes</text>
+    <text x="80" y="357" font-size="15">Starts empty · transactional revisions</text>
+    <text x="580" y="357" font-size="15">Starts empty · no access to A by URL</text>
+    <text x="80" y="388" font-size="15">A local ID is not a cloud access token.</text>
+    <text x="580" y="388" font-size="15">The same device profile is shared access.</text>
+    <path d="M250 415V460H750V415" fill="none" stroke="#475569" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
+    <rect x="330" y="442" width="340" height="36" rx="8" fill="#fff7ed" stroke="#c2410c"/>
+    <text x="500" y="465" text-anchor="middle" font-size="15">Only deliberate export / import transfers a board</text>
+    <text x="40" y="514" font-size="13" fill="#475569">Browser storage is not a backup. Protect exported files and browser profiles; app updates must remain trusted.</text>
+  </g>
+</svg>
