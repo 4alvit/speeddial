@@ -2,6 +2,10 @@
 
 [English](README.md) · [Русский](README.ru.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md)
 
+![Version locale de Speedial avec des favoris fictifs, vue en perspective.](docs/images/speedial-hero.png)
+
+Version locale au navigateur · favoris et illustrations de démonstration · [Capture originale](docs/images/speedial-local.jpg) · [Capture et rendu](docs/images/README.md)
+
 Les deux versions restent disponibles : **Speedial** conserve un tableau personnel dans chaque navigateur ; **Speed Dial auto-hébergé** conserve un tableau partagé sur le serveur avec captures automatiques. Le stockage et la restauration diffèrent entre ces versions.
 
 [Ouvrir l’application](https://speedial.alvit.here.now/) · [Sauvegardes du navigateur](docs/browser-backups.md) · [Node.js](README.md#local-development) · [Docker](README.md#docker) · [k3s / Kubernetes](README.md#k3s--kubernetes) · [Runners CI](docs/CI.md) · [Profil de l’organisation](docs/organization-profile.md)
@@ -31,7 +35,7 @@ Remplacez `YOUR-BACKUP.json` par le nom de votre sauvegarde. Les scripts interac
 
 Un tableau de favoris partagé et auto-hébergé, avec des vignettes compactes, la modification directe, l'échange de deux positions et des réglages persistants. L'interface existe en anglais, russe, allemand, français et espagnol.
 
-Le serveur lit ses identifiants dans des fichiers externes et conserve les données hors de l’image. Le dépôt public `speeddial` contient le code et des exemples génériques de déploiement. `speeddial-private` conserve l’historique privé et les éléments de restauration, en utilisant une révision figée du code public sans le dupliquer.
+Le serveur lit ses identifiants dans des fichiers externes et conserve les données hors de l’image. Le dépôt public `speeddial` contient le code et des exemples génériques de déploiement. Le dépôt privé d’exploitation conserve l’historique privé et les éléments de restauration, en utilisant une révision figée du code public sans le dupliquer.
 
 ![Architecture avec secrets externes, données persistantes et captures réseau limitées.](wiki/images/architecture.svg)
 
@@ -70,4 +74,4 @@ L’**export JSON du serveur** ne contient pas les fichiers images : ce n’est 
 
 L’exécution avec [Docker](README.md#docker) et [k3s / Kubernetes](README.md#k3s--kubernetes) est conservée. L’exemple Docker garde les données et secrets hors de l’image ; k3s demande un overlay adapté à l’image, au stockage et au routage. Publier la version locale ne modifie pas le déploiement du serveur. Un [guide avec exemple de README pour le profil de l’organisation](docs/organization-profile.md) est également disponible.
 
-Ce dépôt public commence avec un nouvel historique de code et des exemples synthétiques. L’ancien historique privé reste dans `speeddial-private`. Sauvegardes, identifiants et données personnelles restent hors de Git. Le code est consultable publiquement mais reste `UNLICENSED` ; aucune licence open source de redistribution n’est accordée.
+Ce dépôt public commence avec un nouvel historique de code et des exemples synthétiques. L’ancien historique privé reste dans le dépôt privé d’exploitation. Sauvegardes, identifiants et données personnelles restent hors de Git. Le code est consultable publiquement mais reste `UNLICENSED` ; aucune licence open source de redistribution n’est accordée.

@@ -2,6 +2,10 @@
 
 [English](README.md) · [Русский](README.ru.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md)
 
+![Speedial browser-local edition with synthetic bookmarks, shown in perspective.](docs/images/speedial-hero.png)
+
+Browser-local edition · synthetic bookmarks and demo cover artwork · [Flat screenshot](docs/images/speedial-local.jpg) · [Capture and rendering](docs/images/README.md)
+
 Two editions remain available: **Speedial** stores a personal board in each browser; **self-hosted Speed Dial** stores a shared board on your server and generates screenshots. Choose the data model before following a setup or backup guide.
 
 [Open the local app](https://speedial.alvit.here.now/) · [Browser backups](docs/browser-backups.md) · [Node.js](#local-development) · [Docker](#docker) · [k3s / Kubernetes](#k3s--kubernetes) · [CI runners](docs/CI.md) · [Organization profile example](docs/organization-profile.md)
@@ -31,7 +35,7 @@ These interactive helpers guide export/import in the selected browser and archiv
 
 A self-hosted shared bookmark board with compact screenshot tiles, direct editing, pairwise drag-and-drop, and persistent settings. The interface supports English, Russian, German, French, and Spanish.
 
-The server reads access credentials from external files and keeps board data outside the application image. This public repository contains reusable application code and generic deployment examples. Private operational state and recovery records belong in `speeddial-private`; deploy a pinned revision of this source without copying its code into the operational repository.
+The server reads access credentials from external files and keeps board data outside the application image. This public repository contains reusable application code and generic deployment examples. Private operational state and recovery records belong in the private operations repository; deploy a pinned revision of this source without copying its code into the operational repository.
 
 [User guide](wiki/User-Guide.md) · [Architecture](wiki/Architecture.md) · [API](wiki/API.md) · [Cutover and rollback](deploy/README.md) · [Security](SECURITY.md)
 
@@ -133,4 +137,4 @@ The canonical documentation is in [wiki/](wiki/Home.md). It covers use, API, arc
 
 The [organization profile guide](docs/organization-profile.md) includes a reusable README example for the organization itself. It describes the public app without exposing personal board data or private deployment details.
 
-This public repository starts with a clean source history and synthetic fixtures. The separate `speeddial-private` repository retains historical private material and deployment recovery configuration; its history must not be copied here. Browser backups, server data and credentials remain outside Git. The source is publicly readable, but remains `UNLICENSED`; public visibility does not grant an open-source redistribution license.
+This public repository starts with a clean source history and synthetic fixtures. The separate private operations repository retains historical private material and deployment recovery configuration; its history must not be copied here. Browser backups, server data and credentials remain outside Git. The source is publicly readable, but remains `UNLICENSED`; public visibility does not grant an open-source redistribution license.
