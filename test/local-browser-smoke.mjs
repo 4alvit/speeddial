@@ -73,6 +73,7 @@ const semanticBackup = document => {
 
 try {
   await promisify(execFile)(process.execPath, ['scripts/build-local.mjs'], { cwd: root });
+  const translationVersion = createHash('sha256').update(await fs.readFile(path.join(root, 'dist/local/i18n.js'))).digest('hex');
   if (process.env.LOCAL_TEST_BASE_URL) {
     const target = new URL(process.env.LOCAL_TEST_BASE_URL);
     assert.ok(['http:', 'https:'].includes(target.protocol), 'static test URL must use HTTP(S)');
@@ -124,7 +125,8 @@ try {
       const url = new URL(raw);
       if (!['http:', 'https:'].includes(url.protocol)) return false;
       const allowedPaths = new Set([new URL(entry).pathname, ...files.map(name => `/${name}`)]);
-      return url.origin !== origin || !allowedPaths.has(url.pathname) || (url.search && url.href !== entry);
+      const allowedQuery = url.href === entry || (url.pathname === '/i18n.js' && url.search === `?v=${translationVersion}`);
+      return url.origin !== origin || !allowedPaths.has(url.pathname) || (url.search && !allowedQuery);
     };
     context.on('request', request => {
       requests.push({ url: request.url(), method: request.method() });
@@ -144,6 +146,7 @@ try {
   const initialResponse = await page.goto(entry);
   assert.equal(initialResponse.status(), 200);
   await loaded(page);
+  assert.equal(await page.title(), 'Speed Dial');
   const initial = await read(page);
   assert.equal(initial.tiles.length, 0, 'a new profile never receives a personal seed board');
   assert.match(initial.id, /^[0-9a-f-]{36}$/i);
