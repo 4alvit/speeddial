@@ -2,6 +2,10 @@
 
 [English](README.md) · [Русский](README.ru.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md)
 
+![Browserlokale Speedial-Version mit fiktiven Lesezeichen in perspektivischer Darstellung.](docs/images/speedial-hero.png)
+
+Browserlokale Version · fiktive Lesezeichen und Beispielbilder · [Originalaufnahme](docs/images/speedial-local.jpg) · [Aufnahme und Darstellung](docs/images/README.md)
+
 Beide Versionen bleiben verfügbar: **Speedial** speichert ein persönliches Board je Browser, **selbst gehostetes Speed Dial** ein gemeinsames Board auf dem Server mit automatischen Screenshots. Speicherung und Wiederherstellung unterscheiden sich.
 
 [App öffnen](https://speedial.alvit.here.now/) · [Browser-Sicherungen](docs/browser-backups.md) · [Node.js](README.md#local-development) · [Docker](README.md#docker) · [k3s / Kubernetes](README.md#k3s--kubernetes) · [CI-Runner](docs/CI.md) · [Organisationsprofil](docs/organization-profile.md)
@@ -31,7 +35,7 @@ Ersetze `YOUR-BACKUP.json` durch den Namen deiner Sicherung. Die interaktiven Sk
 
 Eine selbst gehostete gemeinsame Lesezeichenseite mit kompakten Screenshot-Kacheln, direkter Bearbeitung, paarweisem Tauschen und gespeicherten Einstellungen. Die Oberfläche unterstützt Englisch, Russisch, Deutsch, Französisch und Spanisch.
 
-Der Server liest Zugangsdaten aus externen Dateien und speichert Nutzerdaten außerhalb des Images. Das öffentliche Repository `speeddial` enthält den Anwendungscode und allgemeine Bereitstellungsbeispiele. `speeddial-private` bewahrt private Historie und Wiederherstellungsunterlagen und verwendet einen festgelegten Stand des öffentlichen Codes ohne Codekopie.
+Der Server liest Zugangsdaten aus externen Dateien und speichert Nutzerdaten außerhalb des Images. Das öffentliche Repository `speeddial` enthält den Anwendungscode und allgemeine Bereitstellungsbeispiele. Das private Betriebsrepository bewahrt private Historie und Wiederherstellungsunterlagen und verwendet einen festgelegten Stand des öffentlichen Codes ohne Codekopie.
 
 ![Architektur mit externen Zugangsdaten, persistentem Speicher und eingeschränkten Screenshot-Verbindungen.](wiki/images/architecture.svg)
 
@@ -70,4 +74,4 @@ Der **Server-JSON-Export** enthält keine Bildbytes und ist keine vollständige 
 
 Der Betrieb mit [Docker](README.md#docker) und [k3s / Kubernetes](README.md#k3s--kubernetes) bleibt erhalten. Das Docker-Beispiel hält Daten und Zugangsdaten außerhalb des Images; k3s benötigt ein eigenes Overlay für Image, Speicher und Routing. Die Veröffentlichung der lokalen Version ändert keine Serverbereitstellung. Ein [Leitfaden mit README-Beispiel für das Organisationsprofil](docs/organization-profile.md) ist ebenfalls enthalten.
 
-Dieses öffentliche Repository beginnt mit einer neuen Quellcode-Historie und synthetischen Beispielen. Die bisherige private Historie bleibt in `speeddial-private`. Sicherungen, Zugangsdaten und persönliche Inhalte gehören nicht in Git. Der Code ist öffentlich einsehbar, bleibt aber `UNLICENSED`; eine Open-Source-Lizenz zur Weiterverbreitung wird nicht erteilt.
+Dieses öffentliche Repository beginnt mit einer neuen Quellcode-Historie und synthetischen Beispielen. Die bisherige private Historie bleibt im privaten Betriebsrepository. Sicherungen, Zugangsdaten und persönliche Inhalte gehören nicht in Git. Der Code ist öffentlich einsehbar, bleibt aber `UNLICENSED`; eine Open-Source-Lizenz zur Weiterverbreitung wird nicht erteilt.

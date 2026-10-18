@@ -2,6 +2,10 @@
 
 [English](README.md) · [Русский](README.ru.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md)
 
+![Edición local de Speedial con marcadores ficticios, mostrada en perspectiva.](docs/images/speedial-hero.png)
+
+Edición local del navegador · marcadores e imágenes de demostración · [Captura original](docs/images/speedial-local.jpg) · [Captura y renderizado](docs/images/README.md)
+
 Se mantienen ambas versiones: **Speedial** guarda un tablero personal en cada navegador; **Speed Dial autoalojado** guarda un tablero compartido en el servidor y genera capturas automáticamente. Cada versión tiene su propio almacenamiento y recuperación.
 
 [Abrir la aplicación](https://speedial.alvit.here.now/) · [Copias del navegador](docs/browser-backups.md) · [Node.js](README.md#local-development) · [Docker](README.md#docker) · [k3s / Kubernetes](README.md#k3s--kubernetes) · [Runners CI](docs/CI.md) · [Perfil de la organización](docs/organization-profile.md)
@@ -31,7 +35,7 @@ Sustituye `YOUR-BACKUP.json` por el nombre de tu copia. Los scripts interactivos
 
 Un tablero compartido de marcadores en tu propio servidor, con miniaturas compactas, edición directa, intercambio de dos posiciones y ajustes persistentes. La interfaz admite inglés, ruso, alemán, francés y español.
 
-El servidor lee las credenciales desde archivos externos y guarda los datos fuera de la imagen. El repositorio público `speeddial` contiene el código y ejemplos genéricos de despliegue. `speeddial-private` conserva el historial privado y los materiales de recuperación, usando una revisión fija del código público sin duplicarlo.
+El servidor lee las credenciales desde archivos externos y guarda los datos fuera de la imagen. El repositorio público `speeddial` contiene el código y ejemplos genéricos de despliegue. El repositorio privado de operaciones conserva el historial privado y los materiales de recuperación, usando una revisión fija del código público sin duplicarlo.
 
 ![Arquitectura con secretos externos, datos persistentes y red restringida para capturas.](wiki/images/architecture.svg)
 
@@ -70,4 +74,4 @@ La **exportación JSON del servidor** no incluye bytes de imágenes y no es una 
 
 Se conserva la ejecución mediante [Docker](README.md#docker) y [k3s / Kubernetes](README.md#k3s--kubernetes). El ejemplo de Docker mantiene datos y secretos fuera de la imagen; k3s requiere un overlay propio para imagen, almacenamiento y rutas. Publicar la versión local no cambia el despliegue del servidor. También se incluye una [guía con ejemplo de README para el perfil de la organización](docs/organization-profile.md).
 
-Este repositorio público comienza con un historial nuevo y ejemplos sintéticos. El historial privado anterior permanece en `speeddial-private`. Las copias, las credenciales y los datos personales quedan fuera de Git. El código puede consultarse públicamente, pero sigue siendo `UNLICENSED`; no se concede una licencia de redistribución de código abierto.
+Este repositorio público comienza con un historial nuevo y ejemplos sintéticos. El historial privado anterior permanece en el repositorio privado de operaciones. Las copias, las credenciales y los datos personales quedan fuera de Git. El código puede consultarse públicamente, pero sigue siendo `UNLICENSED`; no se concede una licencia de redistribución de código abierto.
