@@ -2,17 +2,17 @@
 
 [English](README.md) · [Русский](README.ru.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md)
 
-![Browserlokale Speedial-Version mit fiktiven Lesezeichen in perspektivischer Darstellung.](docs/images/speedial-hero.png)
+![Browserlokale Speed Dial-Version mit fiktiven Lesezeichen in perspektivischer Darstellung.](docs/images/speedial-hero.png)
 
 Browserlokale Version · fiktive Lesezeichen und Beispielbilder · [Originalaufnahme](docs/images/speedial-local.jpg) · [Aufnahme und Darstellung](docs/images/README.md)
 
-Beide Versionen bleiben verfügbar: **Speedial** speichert ein persönliches Board je Browser, **selbst gehostetes Speed Dial** ein gemeinsames Board auf dem Server mit automatischen Screenshots. Speicherung und Wiederherstellung unterscheiden sich.
+Beide Versionen bleiben verfügbar: **Speed Dial** speichert ein persönliches Board je Browser, **selbst gehostetes Speed Dial** ein gemeinsames Board auf dem Server mit automatischen Screenshots. Speicherung und Wiederherstellung unterscheiden sich.
 
-[App öffnen](https://speedial.alvit.here.now/) · [Browser-Sicherungen](docs/browser-backups.md) · [Node.js](README.md#local-development) · [Docker](README.md#docker) · [k3s / Kubernetes](README.md#k3s--kubernetes) · [CI-Runner](docs/CI.md) · [Organisationsprofil](docs/organization-profile.md)
+[App öffnen](https://speeddial.alvit.here.now/) · [Browser-Sicherungen](docs/browser-backups.md) · [Node.js](README.md#local-development) · [Docker](README.md#docker) · [k3s / Kubernetes](README.md#k3s--kubernetes) · [CI-Runner](docs/CI.md) · [Organisationsprofil](docs/organization-profile.md)
 
-## Öffentliche lokale Browser-Version: Speedial
+## Öffentliche lokale Browser-Version: Speed Dial
 
-[Speedial öffnen](https://speedial.alvit.here.now/) — die öffentliche App mit Daten im Browser. Dies ist die Hauptadresse für dein Board; speichere sie als Lesezeichen. [Anleitung zu Speicherung, Datenschutz und Übertragung](docs/local-speedial.md).
+[Speed Dial öffnen](https://speeddial.alvit.here.now/) — die öffentliche App mit Daten im Browser. Dies ist die Hauptadresse für dein Board; speichere sie als Lesezeichen. [Anleitung zu Speicherung, Datenschutz und Übertragung](docs/local-speedial.md).
 
 Jeder Besucher beginnt mit einem leeren Board. Links, Einstellungen und Bilddaten bleiben in diesem Browserprofil. Dieselbe Adresse oder eine kopierte lokale Board-ID zeigt sie auf einem anderen Computer nicht an. Es gibt keine gemeinsame Board-API, Cloud-Synchronisierung oder automatischen Website-Screenshots. Die fünf Sprachen und Kachelsteuerung bleiben erhalten.
 

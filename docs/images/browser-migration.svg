@@ -33,7 +33,7 @@
     <text x="65" y="382" font-size="14" fill="#1d4ed8">to populate a local board.</text>
     <rect x="25" y="477" width="1050" height="148" rx="16" fill="#fff7ed" stroke="#fdba74"/>
     <text x="46" y="509" font-size="15" font-weight="700" fill="#9a3412">PUBLIC HOSTING — APPLICATION CODE ONLY</text>
-    <text x="46" y="542" font-size="17" font-weight="700">Primary address: speedial.alvit.here.now</text>
+    <text x="46" y="542" font-size="17" font-weight="700">Primary address: speeddial.alvit.here.now</text>
     <text x="46" y="570" font-size="14">A different visitor or clean profile starts with an empty board.</text>
     <text x="46" y="597" font-size="14" fill="#475569">Other origins have separate storage. A public URL or local ID does not reveal another board.</text>
   </g>

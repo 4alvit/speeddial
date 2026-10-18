@@ -1,8 +1,8 @@
-# Speedial: the public, browser-local edition
+# Speed Dial: the public, browser-local edition
 
-[Open Speedial at its primary address](https://speedial.alvit.here.now/). The app is publicly available in the Alvit workspace; no access token or editor password is required. Bookmark this address and keep using it for your board.
+[Open Speed Dial at its primary address](https://speeddial.alvit.here.now/). The app is publicly available in the Alvit workspace; no access token or editor password is required. Bookmark this address and keep using it for your board.
 
-Speedial is a separate static edition of this project. Its public code starts each new browser profile with an empty board, while links, settings and image bytes stay in that profile’s IndexedDB. It does not use the server edition’s API, database, initial state, credentials or screenshot worker. [Node.js, Docker and k3s remain supported deployment paths](../README.md#storage-and-deployment) for the server edition.
+Speed Dial is a separate static edition of this project. Its public code starts each new browser profile with an empty board, while links, settings and image bytes stay in that profile’s IndexedDB. It does not use the server edition’s API, database, initial state, credentials or screenshot worker. [Node.js, Docker and k3s remain supported deployment paths](../README.md#storage-and-deployment) for the server edition.
 
 ![The public app loads code, then keeps two visitors' boards in separate browser profiles. Only a deliberate backup import transfers data.](images/local-storage.svg)
 
@@ -41,8 +41,8 @@ For an existing server board, follow the [private migration and real-browser ver
 An origin consists of the scheme, hostname and port. Different origins have separate IndexedDB storage, even if they serve identical app code. A hosting provider’s generated address is therefore not interchangeable with the primary address for an existing local board. Browser profiles and devices are separate as well; an app deployment does not copy data between them.
 
 1. In the browser and address that currently hold the board, select **Export backup**. Keep the downloaded JSON file private: it includes the readable links and images.
-2. Open [the primary Speedial address](https://speedial.alvit.here.now/) in the destination browser profile. A first visit is expected to be empty. Export any existing destination board before replacing it.
-3. Select **Import backup**, choose the complete Speedial local JSON file, review the link/image summary and confirm replacement. The file is read in that browser; it is not uploaded to here.now.
+2. Open [the primary Speed Dial address](https://speeddial.alvit.here.now/) in the destination browser profile. A first visit is expected to be empty. Export any existing destination board before replacing it.
+3. Select **Import backup**, choose the complete Speed Dial local JSON file, review the link/image summary and confirm replacement. The file is read in that browser; it is not uploaded to here.now.
 4. Reload the destination and verify the intended order, images, grid, link target and language. Keep the source board and protected backup until this verification succeeds.
 
 Import is a one-time copy, not synchronization. Later changes remain separate. Do not paste private JSON into source files, publish it as a hosting asset, or share the backup through a public URL. Migrating an older server board requires an explicitly authorized private conversion that collects its actual image bytes; a JSON file containing server image paths alone cannot restore those images. The conversion and real-browser import must be verified separately from public-app acceptance.
@@ -68,9 +68,15 @@ CHROMIUM_PATH=/path/to/chromium npm run test:local
 
 The browser compatibility workflow runs both the self-hosted server frontend suite and the browser-local privacy suite. Hosted required checks use Chromium, Firefox and WebKit on Linux, Chromium on Windows and WebKit on macOS. Extended manual/scheduled checks retain the larger inventory and additional browser channels. The local suite uses synthetic data and independent browser contexts, including backup restore, profile separation, revisions, image persistence and malicious input.
 
+## Corrected address and existing backups
+
+The primary address is `https://speeddial.alvit.here.now/` (two d’s). The former `https://speedial.alvit.here.now/` address is retained for access to boards already stored there. Open that exact old address in the original browser profile to export its board, then follow the transfer steps above at the corrected address. The addresses have separate storage; identical app files do not synchronize their boards. A redirect alone cannot transfer browser data, so do not replace the old site with a redirect while it is needed for exports.
+
+Existing `speedial-local-backup` version 1 files remain compatible. The internal database name `speedial-local-v1`, `SpeedialStorage` browser interface and `speedial-backup-YYYY-MM-DD.json` download prefix are deliberately unchanged. Do not rename these identifiers when correcting visible branding. Existing links to this `local-speedial.md` guide also remain valid.
+
 ## here.now publication
 
-The public site is live at [speedial.alvit.here.now](https://speedial.alvit.here.now/) with the workspace label `speedial`. Its deployment contains only the reviewed static output from `dist/local`. Making this empty-data app public does not publish personal boards, private recovery records, or a self-hosted service.
+The public site is live at [speeddial.alvit.here.now](https://speeddial.alvit.here.now/) with the workspace label `speeddial`. Its deployment contains only the reviewed static output from `dist/local`. Making this empty-data app public does not publish personal boards, private recovery records, or a self-hosted service.
 
 The source and browser suites validate behavior with synthetic data. They do not establish uptime or prove that a particular person’s board has been imported. Deployment receipts and private migration evidence belong outside this public repository; record the actual source revision and check results for each publication.
 

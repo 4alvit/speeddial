@@ -1,6 +1,6 @@
 # Speed Dial wiki
 
-Open the public [Speedial app](https://speedial.alvit.here.now/) at its primary address. Each browser profile starts with an empty board and keeps its links and images locally. See [local storage, privacy, backup transfers and publication](../docs/local-speedial.md). The public app does not share the self-hosted application's database or access link.
+Open the public [Speed Dial app](https://speeddial.alvit.here.now/) at its primary address. Each browser profile starts with an empty board and keeps its links and images locally. See [local storage, privacy, backup transfers and publication](../docs/local-speedial.md). The public app does not share the self-hosted application's database or access link.
 
 [English README](../README.md) · [Русский](../README.ru.md) · [Deutsch](../README.de.md) · [Français](../README.fr.md) · [Español](../README.es.md)
 

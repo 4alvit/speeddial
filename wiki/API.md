@@ -6,7 +6,7 @@ The self-hosted API is same-origin and JSON-based. There is no separate editor s
 
 The token comes from `ACCESS_TOKEN_FILE`, the signing key from `SESSION_KEY_FILE`. Do not hard-code either into API clients or examples. Every root/index navigation still requires the token even when a cookie exists. Changing the token, key, or optional `AUTH_EPOCH` invalidates older cookies after application restart.
 
-This page describes the self-hosted edition. The public [Speedial app](https://speedial.alvit.here.now/) uses browser-local storage and no shared HTTP API or automatic screenshot service. See [local architecture, privacy and backup transfers](../docs/local-speedial.md).
+This page describes the self-hosted edition. The public [Speed Dial app](https://speeddial.alvit.here.now/) uses browser-local storage and no shared HTTP API or automatic screenshot service. See [local architecture, privacy and backup transfers](../docs/local-speedial.md).
 
 ## Read state safely
 

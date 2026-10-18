@@ -6,7 +6,7 @@ This page describes the self-hosted implementation. The browser interface is pla
 
 ![Application components and external credential boundary](images/architecture.svg)
 
-This page describes the self-hosted edition. The public [Speedial app](https://speedial.alvit.here.now/) uses browser-local storage and no shared HTTP API or automatic screenshot service. See [local architecture, privacy and backup transfers](../docs/local-speedial.md).
+This page describes the self-hosted edition. The public [Speed Dial app](https://speeddial.alvit.here.now/) uses browser-local storage and no shared HTTP API or automatic screenshot service. See [local architecture, privacy and backup transfers](../docs/local-speedial.md).
 
 ## Access and credentials
 

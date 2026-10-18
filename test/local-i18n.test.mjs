@@ -13,7 +13,7 @@ const placeholders = value => [...value.matchAll(/\{([A-Za-z][A-Za-z0-9]*)\}/g)]
 test('local privacy, backup and storage UI are translated in all five languages without changing the private catalogs', () => {
   assert.notEqual(local, original);
   assert.equal(original.catalogs.en.appTitle, 'Speed Dial');
-  assert.equal(local.catalogs.en.appTitle, 'Speedial');
+  assert.equal(local.catalogs.en.appTitle, 'Speed Dial');
   const keys = Object.keys(local.catalogs.en).sort();
   for (const [locale, catalog] of Object.entries(local.catalogs)) {
     assert.deepEqual(Object.keys(catalog).sort(), keys, `${locale}: complete local catalog`);

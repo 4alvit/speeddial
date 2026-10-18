@@ -10,7 +10,7 @@ import '../local/storage.js';
 
 export const root = fileURLToPath(new URL('../', import.meta.url));
 export const backupDirectory = path.join(root, 'backups');
-export const primaryUrl = 'https://speedial.alvit.here.now/';
+export const primaryUrl = 'https://speeddial.alvit.here.now/';
 const { validation, limits } = globalThis.SpeedialStorage;
 const hash = bytes => createHash('sha256').update(bytes).digest('hex');
 export const browsers = Object.freeze({
@@ -24,7 +24,7 @@ export function validateBackup(bytes) {
   if (bytes.byteLength > limits.backupBytes) throw new Error('Backup exceeds the 100 MiB limit.');
   let document;
   try { document = validation.parseBackupDocument(bytes.toString('utf8')); }
-  catch { throw new Error('Invalid or unsupported Speedial backup. No data was saved or restored.'); }
+  catch { throw new Error('Invalid or unsupported Speed Dial backup. No data was saved or restored.'); }
   let imageBytes = 0;
   const images = new Map();
   try {
@@ -159,7 +159,7 @@ export async function waitForExport(directory, baseline, { timeoutMs = 600_000, 
     previous = current;
     await delay(pollMs);
   }
-  throw new Error('Timed out waiting for a fresh Speedial export. Existing files were not selected.');
+  throw new Error('Timed out waiting for a fresh Speed Dial export. Existing files were not selected.');
 }
 
 export async function installedBrowsers() {

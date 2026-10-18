@@ -4,15 +4,15 @@
 
 These instructions describe the current self-hosted access/storage contract. When upgrading an older installation, verify its version and use the migration runbook before assuming compatibility.
 
-## Public Speedial: an empty board or missing images
+## Public Speed Dial: an empty board or missing images
 
-Start with [the primary app address](https://speedial.alvit.here.now/). A first visit from a new browser, profile, device or origin is supposed to be empty. A hosting alias may display the same app but has a separate database. Copying the page URL or board ID cannot recover another profile’s data.
+Start with [the primary app address](https://speeddial.alvit.here.now/). A first visit from a new browser, profile, device or origin is supposed to be empty. A hosting alias may display the same app but has a separate database. Copying the page URL or board ID cannot recover another profile’s data.
 
 Return to the original browser profile and exact address, export a complete local JSON backup, then import it at the primary address in the desired profile. Confirm the preview only after backing up any destination board. The old server’s export references image paths and is not a complete local backup; it cannot restore images on its own. See [transfer instructions](../docs/local-speedial.md#move-a-board-between-browsers-or-addresses).
 
 Use the [local backup and restore scripts](../docs/browser-backups.md) to keep a destination rescue copy and verify the transfer. If the script keeps waiting, finish any browser **Save As** dialog and check that its download folder matches `--downloads`. It waits for a new `speedial-backup-*.json` export; an older file is intentionally not accepted. For a renamed or existing export, use the guide's explicit-file backup command. A verification mismatch keeps the rescue files and does not automatically replace the destination again.
 
-If an image was never uploaded or pasted, the tile shows an initial. Public Speedial does not automatically capture websites or download their favicons. A local backup must include image bytes; neither cloud recovery nor automatic device synchronization is provided.
+If an image was never uploaded or pasted, the tile shows an initial. Public Speed Dial does not automatically capture websites or download their favicons. A local backup must include image bytes; neither cloud recovery nor automatic device synchronization is provided.
 
 If storage is unavailable or was reset, follow the translated error and **Reload page** action after allowing site storage. Repeated reloads cannot restore data that browser cleanup deleted. Import a protected backup when available. A denied persistent-storage request does not prevent ordinary use, but regular backups remain necessary.
 

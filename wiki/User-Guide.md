@@ -2,9 +2,9 @@
 
 [Wiki home](Home.md) · [Troubleshooting](Troubleshooting.md)
 
-## Public Speedial: local boards
+## Public Speed Dial: local boards
 
-Open [speedial.alvit.here.now](https://speedial.alvit.here.now/) and keep this primary address in your bookmarks. No password or access query is needed. A new visitor or browser profile sees an empty board, not anyone else’s links or screenshots.
+Open [speeddial.alvit.here.now](https://speeddial.alvit.here.now/) and keep this primary address in your bookmarks. No password or access query is needed. A new visitor or browser profile sees an empty board, not anyone else’s links or screenshots.
 
 Expand the upper-right arrow to reveal controls. Add a link and, if desired, choose an image file or paste a copied screenshot in the editor before saving. Automatic screenshots are not available in this edition. Tiles still swap one-to-one, the dragged preview follows the pointer, and Settings provides rows, columns, link-opening behavior and five languages.
 

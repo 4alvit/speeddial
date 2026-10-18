@@ -2,17 +2,17 @@
 
 [English](README.md) · [Русский](README.ru.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md)
 
-![Локальная браузерная версия Speedial с демонстрационными закладками, показанная в перспективе.](docs/images/speedial-hero.png)
+![Локальная браузерная версия Speed Dial с демонстрационными закладками, показанная в перспективе.](docs/images/speedial-hero.png)
 
 Локальная браузерная версия · вымышленные закладки и демонстрационные обложки · [Исходный скриншот](docs/images/speedial-local.jpg) · [Съёмка и оформление](docs/images/README.md)
 
-Сохранены обе версии: **Speedial** с личной панелью в каждом браузере и **серверный Speed Dial** с общей панелью и автоматическими скриншотами. Способы хранения и восстановления у них различаются.
+Сохранены обе версии: **Speed Dial** с личной панелью в каждом браузере и **серверный Speed Dial** с общей панелью и автоматическими скриншотами. Способы хранения и восстановления у них различаются.
 
-[Открыть приложение](https://speedial.alvit.here.now/) · [Бэкапы браузера](docs/browser-backups.ru.md) · [Node.js](README.md#local-development) · [Docker](README.md#docker) · [k3s / Kubernetes](README.md#k3s--kubernetes) · [Раннеры CI](docs/CI.md) · [Пример профиля организации](docs/organization-profile.md)
+[Открыть приложение](https://speeddial.alvit.here.now/) · [Бэкапы браузера](docs/browser-backups.ru.md) · [Node.js](README.md#local-development) · [Docker](README.md#docker) · [k3s / Kubernetes](README.md#k3s--kubernetes) · [Раннеры CI](docs/CI.md) · [Пример профиля организации](docs/organization-profile.md)
 
-## Публичная локальная версия: Speedial
+## Публичная локальная версия: Speed Dial
 
-[Открыть Speedial](https://speedial.alvit.here.now/) — публичное приложение с данными в браузере. Это основной адрес: сохраните его в закладках и используйте для своей доски. [Хранение, защита и перенос данных](docs/local-speedial.md).
+[Открыть Speed Dial](https://speeddial.alvit.here.now/) — публичное приложение с данными в браузере. Это основной адрес: сохраните его в закладках и используйте для своей доски. [Хранение, защита и перенос данных](docs/local-speedial.md).
 
 Каждый посетитель начинает с пустой доски. Ссылки, настройки и байты картинок остаются в этом профиле браузера; тот же адрес сайта или скопированный ID доски на другом компьютере их не открывает. Общего API доски, облачной синхронизации и автоматических скриншотов сайтов нет. Сохранены пять языков и управление плитками.
 

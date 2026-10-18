@@ -2,9 +2,11 @@
 
 [Русская инструкция](browser-backups.ru.md) · [Migration runbook](browser-migration.md) · [All deployment options](../README.md#storage-and-deployment)
 
-These scripts preserve the **Speedial board**: ordered links, titles, complete image bytes, rows, columns, opening preference and language. They do not back up browser history, passwords, extensions or unrelated bookmarks. They use the app's portable `speedial-local-backup` JSON format, not Chrome's or Firefox's internal databases.
+These scripts preserve the **Speed Dial board**: ordered links, titles, complete image bytes, rows, columns, opening preference and language. They do not back up browser history, passwords, extensions or unrelated bookmarks. They use the app's portable `speedial-local-backup` JSON format, not Chrome's or Firefox's internal databases.
 
-They operate on the browser-local app at [speedial.alvit.here.now](https://speedial.alvit.here.now/). They do not replace [server backups](../wiki/Operations.md#backup-and-restore) for Node.js, Docker or k3s deployments. The server's older JSON export is not accepted as a complete browser backup; transferring that board requires the [image collection and conversion procedure](browser-migration.md).
+They operate on the browser-local app at [speeddial.alvit.here.now](https://speeddial.alvit.here.now/). They do not replace [server backups](../wiki/Operations.md#backup-and-restore) for Node.js, Docker or k3s deployments. The server's older JSON export is not accepted as a complete browser backup; transferring that board requires the [image collection and conversion procedure](browser-migration.md).
+
+If your board is still at the former `speedial.alvit.here.now` address, export from that exact address first; these scripts now open `speeddial.alvit.here.now`. Use `--no-open` with the already-open old browser tab, or archive its saved export explicitly. Old `speedial-local-backup` files and the `speedial-backup-*.json` download names remain supported. See the [address migration notes](local-speedial.md#corrected-address-and-existing-backups).
 
 ## Requirements and browser support
 
@@ -24,7 +26,7 @@ npm run restore:browser -- backups/YOUR-BACKUP.json --app "/Applications/Brave B
 
 The launch URL is fixed to the primary address. An existing board at another origin must be exported from that exact origin; use `--no-open` while working there and check the intended destination address yourself. Browser storage does not follow a redirect or hostname change.
 
-**These are interactive scripts.** They open the app and manage local files, but you click export, select the import file and confirm replacement. An application can have several profiles: select the intended profile and use [speedial.alvit.here.now](https://speedial.alvit.here.now/). A new profile being empty is expected. The script cannot attest which profile produced a download.
+**These are interactive scripts.** They open the app and manage local files, but you click export, select the import file and confirm replacement. An application can have several profiles: select the intended profile and use [speeddial.alvit.here.now](https://speeddial.alvit.here.now/). A new profile being empty is expected. The script cannot attest which profile produced a download.
 
 ## Back up Chrome
 
@@ -59,7 +61,7 @@ The restore command requires an interactive terminal and guides one browser/prof
 1. It validates and preserves a separate `restore-source` copy. In the destination profile, export the current board, even if empty. The script saves it as `before-restore` so that board remains recoverable.
 2. Confirm in the terminal that the export came from the correct destination profile by typing `RESTORE`.
 3. Click **Import backup** in that same browser, select the printed `restore-source` file, review the summary, then click **Replace this board**. On macOS, press **⌘⇧G** in the file chooser and paste the absolute file path.
-4. Reload Speedial, check that the images display, then export again. The script archives this `after-restore` export and compares ordered links, titles, image bytes, grid, opening preference and language against the source. Regenerated internal IDs and timestamps are ignored. Older backups without a language leave the destination language unchanged.
+4. Reload Speed Dial, check that the images display, then export again. The script archives this `after-restore` export and compares ordered links, titles, image bytes, grid, opening preference and language against the source. Regenerated internal IDs and timestamps are ignored. Older backups without a language leave the destination language unchanged.
 
 Success is reported only after content matches. A mismatch or timeout is **not** a verified restoration. All copies are kept; there is no automatic rollback. To roll back, repeat the command with the saved `before-restore` file. Matching exports prove content equality; checking the profile, origin and visible images remains necessary.
 

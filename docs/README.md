@@ -1,6 +1,6 @@
 # Documentation maintenance
 
-The [English README](../README.md), four localized READMEs and [wiki](../wiki/Home.md) document the public source. Browser-local Speedial and self-hosted Speed Dial have different storage and deployment models; name the edition when explaining backup, access or screenshot behavior.
+The [English README](../README.md), four localized READMEs and [wiki](../wiki/Home.md) document the public source. Browser-local Speed Dial and self-hosted Speed Dial have different storage and deployment models; name the edition when explaining backup, access or screenshot behavior.
 
 Start with [browser backups](browser-backups.md) ([Русский](browser-backups.ru.md)) for Chrome and cross-browser restoration, or the main README's [Docker](../README.md#docker) and [k3s](../README.md#k3s--kubernetes) sections for server deployment. The [organization profile guide](organization-profile.md) includes a copyable README example.
 
@@ -8,7 +8,7 @@ Start with [browser backups](browser-backups.md) ([Русский](browser-backu
 
 This public repository contains reusable code, generic deployment examples and synthetic fixtures. `speeddial-private` owns private operational recovery records and consumes a pinned public revision or immutable image. Do not duplicate application code there or copy its old Git history here.
 
-Use reserved example domains, synthetic bookmark data and generic deployment references. Link consistently to the [primary public app](https://speedial.alvit.here.now/), without personal board data or backup parameters. Never include real access tokens, working entry links, cookies, personal images, infrastructure addresses, backend identifiers or private backup paths. Backups in `backups/` remain local and Git-ignored.
+Use reserved example domains, synthetic bookmark data and generic deployment references. Link consistently to the [primary public app](https://speeddial.alvit.here.now/), without personal board data or backup parameters. Never include real access tokens, working entry links, cookies, personal images, infrastructure addresses, backend identifiers or private backup paths. Backups in `backups/` remain local and Git-ignored.
 
 ## Source-controlled wiki
 

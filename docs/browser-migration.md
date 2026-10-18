@@ -4,7 +4,7 @@ For a board already stored in Chrome or another browser, use the [local backup a
 
 This transfer does not replace or disable the self-hosted application. [Node.js, Docker and k3s deployment options](../README.md#storage-and-deployment) remain available. A browser backup and a [server recovery set](../wiki/Operations.md#backup-and-restore) are separate artifacts; neither is a drop-in restore format for the other.
 
-Use [the primary Speedial address](https://speedial.alvit.here.now/) for the destination board. This is a private data transfer into a particular browser profile, separate from publishing app code. A successful import in a test browser does not populate the user's real browser.
+Use [the primary Speed Dial address](https://speeddial.alvit.here.now/) for the destination board. This is a private data transfer into a particular browser profile, separate from publishing app code. A successful import in a test browser does not populate the user's real browser.
 
 ![A private source snapshot and image bytes become a validated private backup, which is imported into the intended browser. Public hosting receives only app code and another visitor starts empty.](images/browser-migration.svg)
 
@@ -24,7 +24,7 @@ Do not include server credentials, cookies, signing keys, internal configuration
 
 ## Import into the actual browser
 
-1. Return to the intended browser profile at [speedial.alvit.here.now](https://speedial.alvit.here.now/).
+1. Return to the intended browser profile at [speeddial.alvit.here.now](https://speeddial.alvit.here.now/).
 2. Expand the upper-right controls and select **Import backup**.
 3. Choose the privately prepared complete JSON file. Inspect the summary and any validation errors.
 4. Confirm **Replace this board** only after preserving the destination copy. The replacement is transactional; a validation error, quota failure or revision conflict must not partially replace the current board.

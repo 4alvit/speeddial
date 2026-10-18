@@ -13,7 +13,7 @@ This change supplies an example in the Speed Dial repository. It does not create
 ## Apply the example when publishing the profile
 
 1. Inspect the existing `4alvit/.github` profile before editing. Preserve unrelated organization information and the repository's default community-health files and automation.
-2. Copy the example into `profile/README.md` in that repository, or merge its Speedial section into the existing profile. Use the repository's normal reviewed pull-request process.
+2. Copy the example into `profile/README.md` in that repository, or merge its Speed Dial section into the existing profile. Use the repository's normal reviewed pull-request process.
 3. Preview the Markdown and Mermaid diagram. Keep the primary app address unchanged: other hostnames have separate browser storage.
 4. Review the public view while signed out. Confirm that every linked destination is public and that no private screenshots, real bookmarks, backup files, access links or internal service addresses were included.
 
