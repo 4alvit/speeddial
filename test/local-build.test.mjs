@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import os from 'node:os';
+import { createHash } from 'node:crypto';
 import { assets, buildLocal, projectRoot } from '../scripts/build-local.mjs';
 
 test('public export only includes audited code assets, never seeds, secrets or repository history', async () => {
@@ -21,6 +22,16 @@ test('public export only includes audited code assets, never seeds, secrets or r
     const output = path.join(dir, 'output');
     const result = await buildLocal({ sourceRoot: input, outDir: output });
     assert.deepEqual((await fs.readdir(output)).sort(), result.map(a => a.path).sort());
+    const html = await fs.readFile(path.join(output, 'index.html'), 'utf8');
+    const translations = await fs.readFile(path.join(output, 'i18n.js'));
+    const version = createHash('sha256').update(translations).digest('hex');
+    assert.doesNotMatch(html, /\bspeedial\b/i, 'HTML branding uses Speed Dial in every case');
+    assert.doesNotMatch(translations.toString(), /\bspeedial\b/i, 'translated branding uses Speed Dial');
+    const storage = await fs.readFile(path.join(output, 'storage.js'), 'utf8');
+    for (const compatible of ['speedial-local-backup', 'speedial-local-v1', 'SpeedialStorage'])
+      assert.ok(storage.includes(compatible), `preserve ${compatible} compatibility`);
+    assert.match(await fs.readFile(path.join(output, 'app.js'), 'utf8'), /speedial-backup-/);
+    assert.ok(html.includes(`/i18n.js?v=${version}`), 'translation URL changes with its content so cached branding cannot override the new title');
     for (const name of await fs.readdir(output)) {
       assert.ok(Object.hasOwn(assets, name));
       assert.equal((await fs.readFile(path.join(output, name), 'utf8')).includes('SYNTHETIC_PRIVATE_CANARY'), false);

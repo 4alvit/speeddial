@@ -4,7 +4,7 @@
 
 This configuration applies to the self-hosted source in this repository. Validate credentials, data migration and routing separately for each deployment.
 
-This page describes the self-hosted edition. The public [Speedial app](https://speedial.alvit.here.now/) uses browser-local storage and no shared HTTP API or automatic screenshot service. See [local architecture, privacy and backup transfers](../docs/local-speedial.md).
+This page describes the self-hosted edition. The public [Speed Dial app](https://speeddial.alvit.here.now/) uses browser-local storage and no shared HTTP API or automatic screenshot service. See [local architecture, privacy and backup transfers](../docs/local-speedial.md).
 
 ## Required external credentials
 

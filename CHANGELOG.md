@@ -8,9 +8,9 @@
 - Retain shared CI runner selection with GitHub-hosted execution by default, full hosted browser coverage and metadata-only reviewed merging.
 - Preserve `UNLICENSED`; source visibility is not an open-source redistribution license.
 
-### Browser-local Speedial
+### Browser-local Speed Dial
 
-- Publish [Speedial](https://speedial.alvit.here.now/) with empty initial boards, IndexedDB metadata and image bytes, transactional revisions and no board network client.
+- Publish [Speed Dial](https://speeddial.alvit.here.now/) with empty initial boards, IndexedDB metadata and image bytes, transactional revisions and no board network client.
 - Support pairwise drag-and-drop, compact controls, configurable rows and columns, link targets and five interface languages.
 - Support complete JSON backup export, validated replacement import, image upload/paste and browser persistence requests.
 - Include interactive backup/restore helpers that preserve a destination rescue copy and compare ordered links, image bytes and settings after restore. Files stay in Git-ignored `backups/` and are excluded from image and static-site builds.

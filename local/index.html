@@ -7,12 +7,12 @@
   <meta name="theme-color" content="#111313">
   <meta name="color-scheme" content="dark">
   <meta name="referrer" content="no-referrer">
-  <title data-i18n="appTitle">Speedial</title>
+  <title data-i18n="appTitle">Speed Dial</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/app.css">
   <link rel="stylesheet" href="/local.css">
   <script src="/i18n-base.js" defer></script>
-  <script src="/i18n.js" defer></script>
+  <script src="/i18n.js?v=95d8329fef82589918d0da63e3937197f98c336ef361e2e63cba02fc54569704" defer></script>
   <script src="/storage.js" defer></script>
   <script src="/app.js" defer></script>
 </head>
@@ -41,7 +41,7 @@
       <header class="page-header">
         <a id="home-link" class="brand" href="/" aria-label="Speed Dial home" data-i18n-aria-label="home">
           <span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg></span>
-          <span class="brand-name">Speedial</span>
+          <span class="brand-name">Speed Dial</span>
         </a>
         <div class="header-actions">
           <button id="open-settings" class="button button-quiet" type="button"><svg class="icon" aria-hidden="true"><use href="#i-settings"/></svg><span data-i18n="settings">Settings</span></button>
@@ -70,7 +70,7 @@
 
   <dialog id="settings-dialog" class="modal settings-modal" aria-labelledby="settings-title">
     <form id="settings-form" novalidate>
-      <div class="modal-header"><div><p class="eyebrow">SPEEDIAL</p><h2 id="settings-title" data-i18n="settings">Settings</h2></div><button class="icon-button" type="button" data-close="settings-dialog" aria-label="Close" data-i18n-aria-label="close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></div>
+      <div class="modal-header"><div><p class="eyebrow">SPEED DIAL</p><h2 id="settings-title" data-i18n="settings">Settings</h2></div><button class="icon-button" type="button" data-close="settings-dialog" aria-label="Close" data-i18n-aria-label="close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></div>
       <div class="settings-fields">
         <div><label class="field-label" for="layout-rows" data-i18n="rows">Rows</label><input id="layout-rows" class="text-input" name="rows" type="number" min="1" max="12" step="1" inputmode="numeric" required aria-describedby="layout-hint"></div>
         <div><label class="field-label" for="layout-columns" data-i18n="columns">Columns</label><input id="layout-columns" class="text-input" name="columns" type="number" min="1" max="12" step="1" inputmode="numeric" required aria-describedby="layout-hint"></div>
@@ -99,7 +99,7 @@
 
   <dialog id="editor-dialog" class="modal editor-modal" aria-labelledby="editor-title">
     <form id="editor-form" novalidate>
-      <div class="modal-header"><div><p class="eyebrow">SPEEDIAL</p><h2 id="editor-title" data-i18n="addSite">Add site</h2></div><button class="icon-button" type="button" data-close="editor-dialog" aria-label="Close" data-i18n-aria-label="close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></div>
+      <div class="modal-header"><div><p class="eyebrow">SPEED DIAL</p><h2 id="editor-title" data-i18n="addSite">Add site</h2></div><button class="icon-button" type="button" data-close="editor-dialog" aria-label="Close" data-i18n-aria-label="close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></div>
       <label class="field-label" for="tile-url" data-i18n="websiteAddress">Website address</label><input id="tile-url" name="url" class="text-input" type="text" inputmode="url" placeholder="https://example.com" autocomplete="url" spellcheck="false" required maxlength="4096" aria-describedby="url-hint"><p id="url-hint" class="field-hint" data-i18n="urlHint">You can enter an address without https://.</p>
       <label class="field-label" for="tile-title"><span data-i18n="name">Name</span> <span data-i18n="optional">optional</span></label><input id="tile-title" name="title" class="text-input" type="text" placeholder="For example, Mail" data-i18n-placeholder="namePlaceholder" maxlength="300" autocomplete="off">
       <div id="new-preview-note" class="preview-note"><svg class="icon" aria-hidden="true"><use href="#i-image"/></svg><p><span data-i18n="previewNote">Upload an image or paste a screenshot.</span><br><span data-i18n="previewNoteHint">Automatic website screenshots are not available in this local-only version.</span></p></div>

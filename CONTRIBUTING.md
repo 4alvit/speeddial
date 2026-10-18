@@ -1,6 +1,6 @@
 # Contributing
 
-This is the public application source repository. Keep changes scoped and reviewable, and retain both supported editions: browser-local Speedial and the self-hosted server. Preserve compact collapsed controls, pairwise swaps, pointer-following previews and same-window links by default. The explicit page access query applies only to the server edition.
+This is the public application source repository. Keep changes scoped and reviewable, and retain both supported editions: browser-local Speed Dial and the self-hosted server. Preserve compact collapsed controls, pairwise swaps, pointer-following previews and same-window links by default. The explicit page access query applies only to the server edition.
 
 ## Development
 

@@ -2,17 +2,17 @@
 
 [English](README.md) · [Русский](README.ru.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md)
 
-![Speedial browser-local edition with synthetic bookmarks, shown in perspective.](docs/images/speedial-hero.png)
+![Speed Dial browser-local edition with synthetic bookmarks, shown in perspective.](docs/images/speedial-hero.png)
 
 Browser-local edition · synthetic bookmarks and demo cover artwork · [Flat screenshot](docs/images/speedial-local.jpg) · [Capture and rendering](docs/images/README.md)
 
-Two editions remain available: **Speedial** stores a personal board in each browser; **self-hosted Speed Dial** stores a shared board on your server and generates screenshots. Choose the data model before following a setup or backup guide.
+Two editions remain available: **Speed Dial** stores a personal board in each browser; **self-hosted Speed Dial** stores a shared board on your server and generates screenshots. Choose the data model before following a setup or backup guide.
 
-[Open the local app](https://speedial.alvit.here.now/) · [Browser backups](docs/browser-backups.md) · [Node.js](#local-development) · [Docker](#docker) · [k3s / Kubernetes](#k3s--kubernetes) · [CI runners](docs/CI.md) · [Organization profile example](docs/organization-profile.md)
+[Open the local app](https://speeddial.alvit.here.now/) · [Browser backups](docs/browser-backups.md) · [Node.js](#local-development) · [Docker](#docker) · [k3s / Kubernetes](#k3s--kubernetes) · [CI runners](docs/CI.md) · [Organization profile example](docs/organization-profile.md)
 
-## Public browser-local edition: Speedial
+## Public browser-local edition: Speed Dial
 
-[Open Speedial](https://speedial.alvit.here.now/) — the public, browser-local app. This is the primary address to bookmark and use for your board. [Storage, privacy and transfer guide](docs/local-speedial.md).
+[Open Speed Dial](https://speeddial.alvit.here.now/) — the public, browser-local app. This is the primary address to bookmark and use for your board. [Storage, privacy and transfer guide](docs/local-speedial.md).
 
 Each visitor starts with an empty board. Links, settings and image bytes stay in that browser profile; visiting the same URL or copying a local board ID on another computer does not reveal them. There is no shared board API, cloud synchronization or automatic website capture. Five languages and the existing tile controls are retained.
 

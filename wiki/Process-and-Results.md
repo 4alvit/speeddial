@@ -4,7 +4,7 @@
 
 The public `speeddial` repository owns both application editions, tests, generic deployment examples and documentation. It starts with a new Git history and synthetic fixtures. `speeddial-private` retains historical private material and deployment recovery records, consuming a pinned public source revision or immutable image without duplicating application code.
 
-The [browser-local app](https://speedial.alvit.here.now/) starts each visitor with an empty board. Publishing code does not copy anyone's links or screenshots into another browser. The [backup scripts](../docs/browser-backups.md) guide a deliberate transfer with a destination rescue copy and an exact content comparison after restoration.
+The [browser-local app](https://speeddial.alvit.here.now/) starts each visitor with an empty board. Publishing code does not copy anyone's links or screenshots into another browser. The [backup scripts](../docs/browser-backups.md) guide a deliberate transfer with a destination rescue copy and an exact content comparison after restoration.
 
 ## Deployment process
 

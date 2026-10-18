@@ -6,17 +6,17 @@
 
 The interface supports English (`en`), Russian (`ru`), German (`de`), French (`fr`), and Spanish (`es`). English is the default and fallback; the app does not automatically choose the browser's preferred language. Select a language in Settings and save it.
 
-`public/i18n.js` owns the shared translation catalogs and the `SpeedDialI18n` browser interface. The public [Speedial app](https://speedial.alvit.here.now/) extends them with `local/i18n.js` for local storage, image paste/upload, privacy and complete-backup controls. Both editions support the same five languages. User-facing labels, settings, editor dialogs, notifications, screenshot states, validation messages, pagination, accessible names, and announcements must use this shared catalog rather than scattered inline translations.
+`public/i18n.js` owns the shared translation catalogs and the `SpeedDialI18n` browser interface. The public [Speed Dial app](https://speeddial.alvit.here.now/) extends them with `local/i18n.js` for local storage, image paste/upload, privacy and complete-backup controls. Both editions support the same five languages. User-facing labels, settings, editor dialogs, notifications, screenshot states, validation messages, pagination, accessible names, and announcements must use this shared catalog rather than scattered inline translations.
 
 The preference is stored as a string in localStorage under `speeddial.language`. It belongs to the current browser profile and origin and is not synchronized between devices. A language-only save does not update the board revision.
 
-In public Speedial, the complete local JSON backup includes the language. A successful confirmed import applies it in the destination browser; if the browser blocks preference storage, the current page still uses the imported language and reports the persistence failure. Grid and link settings are also local and included in that backup.
+In public Speed Dial, the complete local JSON backup includes the language. A successful confirmed import applies it in the destination browser; if the browser blocks preference storage, the current page still uses the imported language and reports the persistence failure. Grid and link settings are also local and included in that backup.
 
 In the self-hosted edition, language is not part of the shared board or server API export. Changing it alongside a grid setting applies only the grid change through the shared settings API.
 
 Unsupported or invalid stored values and unavailable storage fall back to English on startup. If storage cannot be written, the selected language can still apply to the current page; a translated warning explains that it cannot be saved for the next visit. Private browsing and browser storage policy may affect persistence.
 
-Bookmark titles, URLs, uploaded images, destination websites, server logs, and server-side capture locale are not translated. The self-hosted Chromium capture worker uses the configured `en-US` context independently of the interface language. Public Speedial has no automatic capture worker.
+Bookmark titles, URLs, uploaded images, destination websites, server logs, and server-side capture locale are not translated. The self-hosted Chromium capture worker uses the configured `en-US` context independently of the interface language. Public Speed Dial has no automatic capture worker.
 
 ## Add or update translations
 

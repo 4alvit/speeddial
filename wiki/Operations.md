@@ -4,9 +4,9 @@
 
 The self-hosted edition requires external credentials and a private data volume. For an older installation, follow the migration runbook before an ordinary upgrade because its access model and legacy image layout may differ.
 
-## Public Speedial publication and personal transfers
+## Public Speed Dial publication and personal transfers
 
-The separate public app is live at [speedial.alvit.here.now](https://speedial.alvit.here.now/). Publish only the explicit `dist/local` build allowlist and preserve this primary address so existing browser data remains at the same origin. The app contains no initial personal board; each new browser profile starts empty.
+The separate public app is live at [speeddial.alvit.here.now](https://speeddial.alvit.here.now/). Publish only the explicit `dist/local` build allowlist and preserve this primary address so existing browser data remains at the same origin. Keep the former `speedial.alvit.here.now` site available for exports as described in the [address migration notes](../docs/local-speedial.md#corrected-address-and-existing-backups). The app contains no initial personal board; each new browser profile starts empty.
 
 Treat app updates and data transfers as separate operations. A deployment updates code and cannot transfer an existing board into a real browser. For an authorized personal transfer, use a complete local JSON backup, import it in the intended browser profile at the primary address, and verify order, images and settings after reload. Preserve a private source backup until verification succeeds. Never include the transfer file, real screenshots or private data inventories in hosting assets, Git, logs or documentation.
 

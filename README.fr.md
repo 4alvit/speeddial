@@ -2,17 +2,17 @@
 
 [English](README.md) · [Русский](README.ru.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md)
 
-![Version locale de Speedial avec des favoris fictifs, vue en perspective.](docs/images/speedial-hero.png)
+![Version locale de Speed Dial avec des favoris fictifs, vue en perspective.](docs/images/speedial-hero.png)
 
 Version locale au navigateur · favoris et illustrations de démonstration · [Capture originale](docs/images/speedial-local.jpg) · [Capture et rendu](docs/images/README.md)
 
-Les deux versions restent disponibles : **Speedial** conserve un tableau personnel dans chaque navigateur ; **Speed Dial auto-hébergé** conserve un tableau partagé sur le serveur avec captures automatiques. Le stockage et la restauration diffèrent entre ces versions.
+Les deux versions restent disponibles : **Speed Dial** conserve un tableau personnel dans chaque navigateur ; **Speed Dial auto-hébergé** conserve un tableau partagé sur le serveur avec captures automatiques. Le stockage et la restauration diffèrent entre ces versions.
 
-[Ouvrir l’application](https://speedial.alvit.here.now/) · [Sauvegardes du navigateur](docs/browser-backups.md) · [Node.js](README.md#local-development) · [Docker](README.md#docker) · [k3s / Kubernetes](README.md#k3s--kubernetes) · [Runners CI](docs/CI.md) · [Profil de l’organisation](docs/organization-profile.md)
+[Ouvrir l’application](https://speeddial.alvit.here.now/) · [Sauvegardes du navigateur](docs/browser-backups.md) · [Node.js](README.md#local-development) · [Docker](README.md#docker) · [k3s / Kubernetes](README.md#k3s--kubernetes) · [Runners CI](docs/CI.md) · [Profil de l’organisation](docs/organization-profile.md)
 
-## Version publique locale au navigateur : Speedial
+## Version publique locale au navigateur : Speed Dial
 
-[Ouvrir Speedial](https://speedial.alvit.here.now/) — l’application publique dont les données restent dans le navigateur. Utilisez cette adresse principale pour votre tableau et ajoutez-la à vos favoris. [Guide de stockage, confidentialité et transfert](docs/local-speedial.md).
+[Ouvrir Speed Dial](https://speeddial.alvit.here.now/) — l’application publique dont les données restent dans le navigateur. Utilisez cette adresse principale pour votre tableau et ajoutez-la à vos favoris. [Guide de stockage, confidentialité et transfert](docs/local-speedial.md).
 
 Chaque visiteur commence avec un tableau vide. Liens, réglages et données des images restent dans ce profil de navigateur. La même adresse ou un identifiant local copié ne les affiche pas sur un autre ordinateur. Il n’y a ni API de tableau partagé, ni synchronisation cloud, ni captures automatiques de sites. Les cinq langues et les commandes des vignettes sont conservées.
 

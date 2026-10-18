@@ -1,6 +1,6 @@
 # CI runners and reviewed merging
 
-The public repository validates both browser-local Speedial and the self-hosted server. It uses immutable revisions of the public [venus-os-ci-toolkit](https://github.com/victron-venus/venus-os-ci-toolkit) workflows. Repository administration, Terraform state and private runner provisioning belong in `speeddial-private`, not in this source checkout.
+The public repository validates both browser-local Speed Dial and the self-hosted server. It uses immutable revisions of the public [venus-os-ci-toolkit](https://github.com/victron-venus/venus-os-ci-toolkit) workflows. Repository administration, Terraform state and private runner provisioning belong in `speeddial-private`, not in this source checkout.
 
 ![Source checks use hosted runners by default; independent metadata approval and successful checks gate merging.](images/ci-runner-routing.svg)
 

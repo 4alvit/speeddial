@@ -2,9 +2,9 @@
 
 Tools for everyday workflows, with clear choices about where data lives.
 
-## Speedial
+## Speed Dial
 
-**A visual start page for your own links.** [Open Speedial](https://speedial.alvit.here.now/) and build a board with image tiles, a compact header and your preferred grid.
+**A visual start page for your own links.** [Open Speed Dial](https://speeddial.alvit.here.now/) and build a board with image tiles, a compact header and your preferred grid.
 
 - Drag one tile onto another to swap their positions.
 - Choose rows, columns and whether links open in the current or a new window.
@@ -17,7 +17,7 @@ The public edition stores links, images and settings in the current browser prof
 
 ```mermaid
 flowchart LR
-    App["Public Speedial app"] --> A["Your browser profile"]
+    App["Public Speed Dial app"] --> A["Your browser profile"]
     App --> B["Another browser profile"]
     A --> LocalA["Your local board"]
     B --> LocalB["Separate local board"]

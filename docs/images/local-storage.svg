@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="540" viewBox="0 0 1000 540" role="img" aria-labelledby="title desc">
-  <title id="title">Public Speedial, separate local boards</title>
+  <title id="title">Public Speed Dial, separate local boards</title>
   <desc id="desc">here.now serves the same public code to two browser profiles. Each stores its own empty-at-first board, settings and raster image blobs in IndexedDB. No board is uploaded. An intentional backup export and import is the only transfer shown.</desc>
   <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#475569"/></marker></defs>
   <rect width="1000" height="540" rx="18" fill="#f8fafc"/>

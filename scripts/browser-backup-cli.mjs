@@ -5,7 +5,7 @@ import { createInterface } from 'node:readline/promises';
 import { primaryUrl, assertGitProtection, prepareDirectory, sameRestoredContent, saveBackup,
   downloadSnapshot, waitForExport, installedBrowsers, openBrowser } from './browser-backup-lib.mjs';
 
-const help = `Local Speedial backups (Node.js 24+, run inside the Git checkout)
+const help = `Local Speed Dial backups (Node.js 24+, run inside the Git checkout)
 
   npm run backup:browser -- [--browser chrome] [--downloads /local/folder]
   npm run backup:browser -- --file /local/export.json
