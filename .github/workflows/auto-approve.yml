@@ -32,7 +32,7 @@ jobs:
        !github.event.pull_request.draft) ||
       (github.event_name == 'workflow_dispatch' &&
        github.ref == format('refs/heads/{0}', github.event.repository.default_branch))
-    uses: victron-venus/venus-os-ci-toolkit/.github/workflows/auto-approve-reusable.yml@2149218f2b98dd1ccab0960690a39ab998c92ba9
+    uses: victron-venus/venus-os-ci-toolkit/.github/workflows/auto-approve-reusable.yml@6b2d99519d513d2b871d2a845ddd6134dea4af2c
     with:
       # The private metadata pool also supports trusted default-branch recovery.
       # Enabled mode without labels fails admission rather than falling back.
