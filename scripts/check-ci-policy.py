@@ -13,7 +13,7 @@ from pathlib import Path
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
-PIN = "2149218f2b98dd1ccab0960690a39ab998c92ba9"
+PIN = "6b2d99519d513d2b871d2a845ddd6134dea4af2c"
 TOOLKIT = "victron-venus/venus-os-ci-toolkit/.github/workflows/"
 AUTHORS = '["4alvit","californiantiramisu","dependabot[bot]","renovate[bot]"]'
 MODE = "(vars.CI_RUNNER_MODE == 'self-hosted' || vars.CI_RUNNER_MODE == 'k3s')"
@@ -28,7 +28,7 @@ CI_RUNNER = (
     "${{ fromJSON(" + MODE + " && " + TRUSTED_EVENT + " && "
     "(vars.CI_RUNNER_LABELS || '[]') || '[\"ubuntu-latest\"]') }}"
 )
-BROWSER_PIN = "9f82dae6eac27db5bd57e864a72010131a28107a"
+BROWSER_PIN = "6b2d99519d513d2b871d2a845ddd6134dea4af2c"
 BROWSER_MATRIX = (
     "${{ " + MODE + " && " + TRUSTED_EVENT
     + " && '.github/browser-compatibility-linux.json' || '.github/browser-compatibility.json' }}"
