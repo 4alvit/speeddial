@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1120" height="750" viewBox="0 0 1120 750" role="img" aria-labelledby="title desc">
 <title id="title">Public source, private data</title>
-<desc id="desc">The public speeddial repository contains source, tests, docs and generic deployment files. The speeddial-private repository contains private operations and pins public source without duplicating application code. Browser data remains in each profile; server data and credentials remain in protected storage.</desc>
+<desc id="desc">The public speeddial repository contains source, tests, docs and generic deployment files. Private operational archives retain recovery records and pin public source without duplicating application code. Browser data remains in each profile; server data and credentials remain in protected storage.</desc>
 <defs>
   <linearGradient id="header" x2="1" y2="1"><stop stop-color="#10223f"/><stop offset="1" stop-color="#283b68"/></linearGradient>
   <linearGradient id="accent"><stop stop-color="#38bdf8"/><stop offset="0.5" stop-color="#a78bfa"/><stop offset="1" stop-color="#34d399"/></linearGradient>
@@ -23,7 +23,7 @@
 <text x="60" y="313" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">UNLICENSED source visibility</text>
 <rect x="400" y="165" width="320" height="186" rx="14" fill="#f5f3ff" stroke="#d8e2ef"/>
 <rect x="400" y="183" width="4" height="150" rx="2" fill="#7c3aed" stroke="none"/>
-<text x="420" y="197" font-size="19" style="fill:#172b46" font-weight="700" text-anchor="start">speeddial-private · operations</text>
+<text x="420" y="197" font-size="19" style="fill:#172b46" font-weight="700" text-anchor="start">Private operations archive</text>
 <text x="420" y="225" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Pinned public commit or image</text>
 <text x="420" y="247" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Private deployment overlays</text>
 <text x="420" y="269" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">Recovery and acceptance records</text>
