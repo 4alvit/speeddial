@@ -26,6 +26,7 @@ for (const name of markdown) {
   const source = withoutCode(fs.readFileSync(file, 'utf8'));
   const links = [...source.matchAll(/!?\[[^\]\n]*\]\(<?([^\s)>]+)>?(?:\s+"[^"]*")?\)/g)].map(match => match[1]);
   links.push(...[...source.matchAll(/^\[[^\]]+\]:\s+<?([^\s>]+)>?/gm)].map(match => match[1]));
+  links.push(...[...source.matchAll(/<a\b[^>]*\bhref="([^"]+)"[^>]*>/gi)].map(match => match[1]));
   for (const link of links) {
     if (/^(?:[a-z][a-z\d+.-]*:|\/\/)/i.test(link)) continue;
     let target, fragment;
