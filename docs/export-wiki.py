@@ -49,6 +49,8 @@ def export(destination: Path, ref: str = "main") -> int:
                 raise ValueError("Nested wiki pages need explicit link-resolution support")
             text = item.read_text(encoding="utf-8")
             text = re.sub(r"(\]\()([^\s)]+)(\))", rewrite, text)
+            # Language switchers are HTML anchors to preserve bidi direction.
+            text = re.sub(r'(<a\b[^>]*\bhref=")([^"]+)(")', rewrite, text)
             target.write_text(text, encoding="utf-8")
             pages += 1
         else:
