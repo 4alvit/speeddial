@@ -1,6 +1,35 @@
 # Local browser backup and restore scripts
 
-[Русская инструкция](browser-backups.ru.md) · [Migration runbook](browser-migration.md) · [All deployment options](../README.md#storage-and-deployment)
+<!-- language-navigation:start -->
+<p dir="ltr">
+<a href="browser-backups.md" lang="en" dir="ltr">English</a>
+<a href="browser-backups.ar.md" lang="ar" dir="rtl">العربية</a>
+<a href="browser-backups.bn.md" lang="bn" dir="ltr">বাংলা</a>
+<a href="browser-backups.cs.md" lang="cs" dir="ltr">Čeština</a>
+<a href="browser-backups.de.md" lang="de" dir="ltr">Deutsch</a>
+<a href="browser-backups.es.md" lang="es" dir="ltr">Español</a>
+<a href="browser-backups.fa.md" lang="fa" dir="rtl">فارسی</a>
+<a href="browser-backups.fr.md" lang="fr" dir="ltr">Français</a>
+<a href="browser-backups.he.md" lang="he" dir="rtl">עברית</a>
+<a href="browser-backups.hi.md" lang="hi" dir="ltr">हिन्दी</a>
+<a href="browser-backups.id.md" lang="id" dir="ltr">Bahasa Indonesia</a>
+<a href="browser-backups.it.md" lang="it" dir="ltr">Italiano</a>
+<a href="browser-backups.ja.md" lang="ja" dir="ltr">日本語</a>
+<a href="browser-backups.ko.md" lang="ko" dir="ltr">한국어</a>
+<a href="browser-backups.nl.md" lang="nl" dir="ltr">Nederlands</a>
+<a href="browser-backups.pl.md" lang="pl" dir="ltr">Polski</a>
+<a href="browser-backups.pt.md" lang="pt" dir="ltr">Português</a>
+<a href="browser-backups.ru.md" lang="ru" dir="ltr">Русский</a>
+<a href="browser-backups.th.md" lang="th" dir="ltr">ไทย</a>
+<a href="browser-backups.tr.md" lang="tr" dir="ltr">Türkçe</a>
+<a href="browser-backups.uk.md" lang="uk" dir="ltr">Українська</a>
+<a href="browser-backups.vi.md" lang="vi" dir="ltr">Tiếng Việt</a>
+<a href="browser-backups.zh-Hans.md" lang="zh-Hans" dir="ltr">简体中文</a>
+<a href="browser-backups.zh-Hant.md" lang="zh-Hant" dir="ltr">繁體中文</a>
+</p>
+<!-- language-navigation:end -->
+
+[Migration runbook](browser-migration.md) · [All deployment options](../README.md#storage-and-deployment)
 
 These scripts preserve the **Speed Dial board**: ordered links, titles, complete image bytes, rows, columns, opening preference and language. They do not back up browser history, passwords, extensions or unrelated bookmarks. They use the app's portable `speedial-local-backup` JSON format, not Chrome's or Firefox's internal databases.
 

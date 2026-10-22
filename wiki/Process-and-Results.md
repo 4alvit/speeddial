@@ -1,8 +1,37 @@
 # Source, deployment and verification
 
-[Wiki home](Home.md) · [Русская версия](Process-and-Results.ru.md)
+<!-- language-navigation:start -->
+<p dir="ltr">
+<a href="Process-and-Results.md" lang="en" dir="ltr">English</a>
+<a href="Process-and-Results.ar.md" lang="ar" dir="rtl">العربية</a>
+<a href="Process-and-Results.bn.md" lang="bn" dir="ltr">বাংলা</a>
+<a href="Process-and-Results.cs.md" lang="cs" dir="ltr">Čeština</a>
+<a href="Process-and-Results.de.md" lang="de" dir="ltr">Deutsch</a>
+<a href="Process-and-Results.es.md" lang="es" dir="ltr">Español</a>
+<a href="Process-and-Results.fa.md" lang="fa" dir="rtl">فارسی</a>
+<a href="Process-and-Results.fr.md" lang="fr" dir="ltr">Français</a>
+<a href="Process-and-Results.he.md" lang="he" dir="rtl">עברית</a>
+<a href="Process-and-Results.hi.md" lang="hi" dir="ltr">हिन्दी</a>
+<a href="Process-and-Results.id.md" lang="id" dir="ltr">Bahasa Indonesia</a>
+<a href="Process-and-Results.it.md" lang="it" dir="ltr">Italiano</a>
+<a href="Process-and-Results.ja.md" lang="ja" dir="ltr">日本語</a>
+<a href="Process-and-Results.ko.md" lang="ko" dir="ltr">한국어</a>
+<a href="Process-and-Results.nl.md" lang="nl" dir="ltr">Nederlands</a>
+<a href="Process-and-Results.pl.md" lang="pl" dir="ltr">Polski</a>
+<a href="Process-and-Results.pt.md" lang="pt" dir="ltr">Português</a>
+<a href="Process-and-Results.ru.md" lang="ru" dir="ltr">Русский</a>
+<a href="Process-and-Results.th.md" lang="th" dir="ltr">ไทย</a>
+<a href="Process-and-Results.tr.md" lang="tr" dir="ltr">Türkçe</a>
+<a href="Process-and-Results.uk.md" lang="uk" dir="ltr">Українська</a>
+<a href="Process-and-Results.vi.md" lang="vi" dir="ltr">Tiếng Việt</a>
+<a href="Process-and-Results.zh-Hans.md" lang="zh-Hans" dir="ltr">简体中文</a>
+<a href="Process-and-Results.zh-Hant.md" lang="zh-Hant" dir="ltr">繁體中文</a>
+</p>
+<!-- language-navigation:end -->
 
-The public `speeddial` repository owns both application editions, tests, generic deployment examples and documentation. It starts with a new Git history and synthetic fixtures. `speeddial-private` retains historical private material and deployment recovery records, consuming a pinned public source revision or immutable image without duplicating application code.
+[Wiki home](Home.md)
+
+The public `speeddial` repository owns both application editions, tests, generic deployment examples and documentation. It starts with a new Git history and synthetic fixtures. Private operational archives retain historical material and deployment recovery records, consuming a pinned public source revision or immutable image without duplicating application code.
 
 The [browser-local app](https://speeddial.alvit.here.now/) starts each visitor with an empty board. Publishing code does not copy anyone's links or screenshots into another browser. The [backup scripts](../docs/browser-backups.md) guide a deliberate transfer with a destination rescue copy and an exact content comparison after restoration.
 

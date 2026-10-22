@@ -170,9 +170,9 @@ def release_process():
 
 
 def release_results():
-    d = Diagram("Public source, private data", "One application codebase supplies browser builds and private server deployments.", "The public speeddial repository contains source, tests, docs and generic deployment files. The speeddial-private repository contains private operations and pins public source without duplicating application code. Browser data remains in each profile; server data and credentials remain in protected storage.", 750)
+    d = Diagram("Public source, private data", "One application codebase supplies browser builds and private server deployments.", "The public speeddial repository contains source, tests, docs and generic deployment files. Private operational archives retain recovery records and pin public source without duplicating application code. Browser data remains in each profile; server data and credentials remain in protected storage.", 750)
     d.card(40, 165, 320, 186, "speeddial · public source", ["Browser + server application", "Tests, five languages and docs", "Dockerfile + Kubernetes base", "Clean history; synthetic fixtures", "UNLICENSED source visibility"], "blue")
-    d.card(400, 165, 320, 186, "speeddial-private · operations", ["Pinned public commit or image", "Private deployment overlays", "Recovery and acceptance records", "Historical private Git material", "No duplicate application code"], "purple")
+    d.card(400, 165, 320, 186, "Private operations archive", ["Pinned public commit or image", "Private deployment overlays", "Recovery and acceptance records", "Historical private Git material", "No duplicate application code"], "purple")
     d.card(760, 165, 320, 186, "Protected runtime storage", ["Browser: per-profile IndexedDB", "Server: SQLite + image volume", "External access credentials", "Local or protected backups", "No personal data in public code"], "teal")
     d.arrow("M360 255 H400"); d.arrow("M720 255 H760")
     d.card(40, 420, 500, 220, "Browser-local edition", ["Publish only the frontend build allowlist", "A new browser profile starts empty", "Upload or paste images; no remote capture", "Explicit full backup export and import", "App updates do not synchronize boards"], "teal")
