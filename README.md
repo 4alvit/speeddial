@@ -1,5 +1,9 @@
 # Alvit Speed Dial
 
+[![RC fuzz assessment](https://github.com/4alvit/speeddial/actions/workflows/fuzz-candidate.yml/badge.svg)](https://github.com/4alvit/speeddial/actions/workflows/fuzz-candidate.yml)
+
+[RC fuzz testing: scope, process, limits and results](docs/fuzzing.md)
+
 [English](README.md) · [Русский](README.ru.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md)
 
 ![Speed Dial browser-local edition with synthetic bookmarks, shown in perspective.](docs/images/speedial-hero.png)

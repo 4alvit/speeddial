@@ -1,0 +1,10 @@
+{
+  "name": "speeddial-rc-fuzz",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Isolated RC-only fuzzing tools; excluded from the application",
+  "devDependencies": {
+    "@jazzer.js/core": "4.0.0"
+  }
+}
