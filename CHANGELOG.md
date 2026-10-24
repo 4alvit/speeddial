@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Add public RC-only fuzz assessment for portable backup validation and raster dimension headers, with locked Jazzer.js tooling, committed regression inputs and source-bound evidence.
+
 ## Public source baseline — 2026-10-17
 
 - Create a public source repository with a new Git history and synthetic fixtures. Historical private material remains in the separate `speeddial-private` repository.

@@ -1,0 +1,1 @@
+{"format": "speedial-local-backup", "version": 1, "createdAt": "2026-10-21T00:00:00Z", "locale": "en", "board": {"layout": {"rows": 2, "columns": 3}, "openLinksIn": "new-window", "tiles": [{"id": "00000000-0000-4000-8000-000000000001", "url": "javascript:alert(1)", "title": "Example", "image": null}]}, "images": []}

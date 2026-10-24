@@ -11,10 +11,11 @@
     "restore:browser": "node scripts/restore-browser.mjs",
     "start": "node server.mjs",
     "test": "node --test test/*.test.mjs",
-    "check": "node --check server.mjs && node --check access.mjs && node --check initial-state.mjs && node --check scripts/verify-access.mjs && node --check public/app.js && node --check public/i18n.js && node --check local/app.js && node --check local/i18n.js && node --check local/storage.js && node scripts/check-docs.mjs && npm test",
+    "check": "node --check server.mjs && node --check access.mjs && node --check initial-state.mjs && node --check scripts/verify-access.mjs && node --check public/app.js && node --check public/i18n.js && node --check local/app.js && node --check local/i18n.js && node --check local/storage.js && node scripts/check-docs.mjs && npm test && npm run fuzz:replay",
     "test:browser": "node test/frontend-smoke.mjs",
     "build:local": "node scripts/build-local.mjs",
-    "test:local": "node test/local-browser-smoke.mjs"
+    "test:local": "node test/local-browser-smoke.mjs",
+    "fuzz:replay": "node fuzz/replay.mjs"
   },
   "dependencies": {
     "playwright-core": "1.56.1"

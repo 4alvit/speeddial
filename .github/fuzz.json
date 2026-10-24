@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "language": "javascript",
+  "setup": [
+    [
+      "npm",
+      "ci",
+      "--prefix",
+      "fuzz",
+      "--ignore-scripts",
+      "--no-audit",
+      "--no-fund"
+    ]
+  ],
+  "targets": [
+    {
+      "name": "backup",
+      "engine": "libfuzzer",
+      "command": [
+        "node",
+        "fuzz/node_modules/@jazzer.js/core/dist/cli.js",
+        "fuzz/backup.mjs",
+        "--sync",
+        "--",
+        "-max_len=65536"
+      ],
+      "seconds": 60,
+      "corpus": "fuzz/corpus/backup"
+    },
+    {
+      "name": "images",
+      "engine": "libfuzzer",
+      "command": [
+        "node",
+        "fuzz/node_modules/@jazzer.js/core/dist/cli.js",
+        "fuzz/images.mjs",
+        "--sync",
+        "--",
+        "-max_len=65536"
+      ],
+      "seconds": 60,
+      "corpus": "fuzz/corpus/images"
+    }
+  ],
+  "preflight": [
+    [
+      "node",
+      "fuzz/replay.mjs"
+    ]
+  ]
+}
