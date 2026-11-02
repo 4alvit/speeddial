@@ -6,6 +6,13 @@ runners: pull requests require current Chromium, Firefox and WebKit on Linux,
 Chromium on Windows, and WebKit on macOS. Weekly and manual runs expand from
 these 5 required targets to all 35 targets in `.github/browser-compatibility.json`.
 
+The current required macOS WebKit target explicitly uses the standard
+`macos-15-intel` runner. It still requires macOS 15, Playwright 1.64.0 and WebKit
+27.2 after repeated unassigned ARM runner jobs; it does not claim ARM
+execution. The shared workflow verifies the Intel runner's x64 architecture.
+All ten extended macOS targets keep their existing `macos-15` selection. Both
+standard labels are [free for public repositories](https://docs.github.com/en/actions/how-tos/write-workflows/choose-where-workflows-run/choose-the-runner-for-a-job).
+
 With `CI_RUNNER_MODE=self-hosted` or its `k3s` alias, trusted same-repository pull
 requests and default-branch push/schedule/manual events use the Linux runner
 labels in the JSON array `CI_RUNNER_LABELS`. Their inventory is
@@ -62,7 +69,9 @@ or deploy the site.
 
 Refresh `.github/browser-compatibility.json` and the isolated toolchain locks
 under `tools/browser-compatibility/` together using the reviewed shared toolkit
-browser generator. Then run `node scripts/browser-matrix.mjs --write` to derive
+browser generator. Preserve the explicit Intel selection for the current required
+macOS WebKit row (both its `os` and `id`); the policy test rejects an accidental
+change of the reviewed runner selection. Then run `node scripts/browser-matrix.mjs --write` to derive
 the Linux inventory. `node scripts/browser-matrix.mjs` verifies it is current;
 `node --test test/browser-policy.test.mjs` checks the exact platform/engine scope
 and toolchain pins. Keep the three generations distinct from normal application

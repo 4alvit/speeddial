@@ -12,6 +12,16 @@ import { loadAccess } from '../access.mjs';
 import { initialState } from '../initial-state.mjs';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
+
+test('credential and seed byte limits reject oversized files', t => {
+  const f = fixture(t);
+  fs.writeFileSync(f.env.ACCESS_TOKEN_FILE, 'a'.repeat(4097));
+  assert.throws(() => loadAccess(f.env), /credential file/);
+  const seed = path.join(f.directory, 'oversized-seed');
+  fs.writeFileSync(seed, '');
+  fs.truncateSync(seed, 16 * 1024 * 1024 + 1);
+  assert.throws(() => initialState(seed), /valid Speed Dial seed/);
+});
 function fixture(t) {
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'speeddial-access-'));
   t.after(() => fs.rmSync(directory, { recursive: true, force: true }));
@@ -169,7 +179,7 @@ test('cutover verifier proves old access before accepting revocation evidence', 
   const oldCookie = fs.readFileSync(oldCookieFile, 'utf8');
   await server.stop();
   fs.writeFileSync(f.env.SESSION_KEY_FILE, randomBytes(48));
-  server = await start(t, { ...f.env, PORT: new URL(base).port });
+  await start(t, { ...f.env, PORT: new URL(base).port });
   // A plausible but never-issued old cookie must not certify revocation.
   fs.writeFileSync(oldCookieFile, `speeddial_view=${Date.now() + 3600000}.${randomBytes(24).toString('base64url')}.${randomBytes(32).toString('base64url')}`);
   await assert.rejects(run([...args, '--execute']));

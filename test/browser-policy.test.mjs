@@ -29,9 +29,16 @@ test('hosted inventory retains native OS coverage and branded channels', () => {
   assert.equal(full.length, 35);
   assert.equal(required(full).length, 5);
   assert.deepEqual(required(full).filter(row => row.os !== 'ubuntu-latest').map(row => [row.os, row.engine]), [
-    ['windows-2022', 'chromium'], ['macos-15', 'webkit'],
+    ['windows-2022', 'chromium'], ['macos-15-intel', 'webkit'],
   ]);
   assert.equal(full.filter(row => row.os !== 'ubuntu-latest').length, 22);
+  const intel = full.filter(row => row.os === 'macos-15-intel');
+  assert.equal(intel.length, 1, 'Only the current required macOS target uses Intel');
+  assert.equal(intel[0].id, 'macos-15-intel-webkit-1-64-0');
+  assert.equal(intel[0].playwright, '1.64.0');
+  assert.equal(intel[0].browser_version, '27.2');
+  assert.equal(intel[0].tier, 'required');
+  assert.equal(full.filter(row => row.os === 'macos-15' && row.tier === 'extended').length, 10);
   assert.deepEqual(full.filter(row => row.os === 'ubuntu-latest' && row.channel).map(row => row.channel).sort(),
     ['chrome', 'chrome-beta', 'msedge', 'msedge-beta']);
 });

@@ -1,4 +1,4 @@
-import { createFixture, syntheticPng, syntheticTiles } from './fixtures.mjs';
+import { createFixture } from './fixtures.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';

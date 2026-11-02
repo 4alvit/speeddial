@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends chromium ca-cer
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci --omit=dev
-COPY server.mjs screenshot.mjs screenshot-worker.mjs safe-proxy.mjs access.mjs initial-state.mjs ./
+COPY server.mjs screenshot.mjs screenshot-worker.mjs safe-proxy.mjs access.mjs initial-state.mjs bounded-file.mjs ./
 COPY public ./public
 RUN mkdir /data && chown node:node /data
 ENV NODE_ENV=production PORT=3000 DATA_DIR=/data CHROMIUM_PATH=/usr/bin/chromium

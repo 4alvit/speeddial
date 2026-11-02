@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
+import { readBoundedFile } from '../bounded-file.mjs';
 
 // Full publication cutover: the entry token AND old sessions must be revoked.
 // --prepare proves old access before cutover; --execute checks the same inputs
@@ -31,8 +32,7 @@ async function main() {
   if (new Set(files).size !== files.length) throw new Error('Input and output paths must be distinct');
   function read(name) {
     const filename = options.get(name);
-    if (fs.statSync(filename).size > 4096) throw new Error('Private input is too large');
-    return fs.readFileSync(filename, 'utf8').trim();
+    return readBoundedFile(filename, 4096).toString('utf8').trim();
   }
   const token = read('--token-file'), oldQuery = read('--old-query-file');
   if (!/^[A-Za-z0-9_-]{32,256}$/.test(token)) throw new Error('Invalid token input');

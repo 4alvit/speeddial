@@ -72,8 +72,8 @@
     "tier": "extended"
   },
   {
-    "id": "macos-15-webkit-1-64-0",
-    "os": "macos-15",
+    "id": "macos-15-intel-webkit-1-64-0",
+    "os": "macos-15-intel",
     "engine": "webkit",
     "playwright": "1.64.0",
     "browser_version": "27.2",

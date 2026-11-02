@@ -30,7 +30,7 @@ const passed = name => { scenarios.push(name); console.log(`PASS ${name}`); };
 const errors = [];
 let serverErrors = '';
 try {
-  await Promise.all(['server.mjs', 'safe-proxy.mjs', 'access.mjs', 'initial-state.mjs'].map(name => fs.copyFile(path.join(root, name), path.join(dir, name))));
+  await Promise.all(['server.mjs', 'safe-proxy.mjs', 'access.mjs', 'initial-state.mjs', 'bounded-file.mjs'].map(name => fs.copyFile(path.join(root, name), path.join(dir, name))));
   await fs.cp(path.join(root, 'public'), path.join(dir, 'public'), { recursive: true, dereference: false });
   await fs.writeFile(path.join(dir, 'screenshot.mjs'), `export async function capture() { return Buffer.from('${png.toString('base64')}', 'base64'); }\n`);
   child = spawn(process.execPath, [path.join(dir, 'server.mjs')], {
@@ -388,7 +388,7 @@ try {
   assert.deepEqual(errors, [], 'no browser JavaScript errors');
   assert.deepEqual(unexpected, [], 'no unexpected outbound requests');
   if (compatibility) {
-    const applicationFiles = Object.fromEntries(await Promise.all(['server.mjs', 'access.mjs', 'initial-state.mjs', 'public/index.html', 'public/app.js', 'public/i18n.js'].map(async name => [name, createHash('sha256').update(await fs.readFile(path.join(root, name))).digest('hex')])));
+    const applicationFiles = Object.fromEntries(await Promise.all(['server.mjs', 'access.mjs', 'initial-state.mjs', 'bounded-file.mjs', 'public/index.html', 'public/app.js', 'public/i18n.js'].map(async name => [name, createHash('sha256').update(await fs.readFile(path.join(root, name))).digest('hex')])));
     await fs.writeFile(process.env.CI_BROWSER_EVIDENCE, JSON.stringify({ ...runtime, testsPassed: scenarios.length, testsFailed: 0, scenarios, applicationFiles }, null, 2) + '\n');
   }
   console.log('Frontend smoke passed: 5 locales, browser-only language persistence, translated validation, mobile layout, pair-only pointer/keyboard swap, drag preview, concurrent editing, stale-response protection, pagination, safe titles, and same-window links.');
