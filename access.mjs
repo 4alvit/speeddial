@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+import { readBoundedFile } from './bounded-file.mjs';
 import path from 'node:path';
 import { createHash, createHmac, timingSafeEqual } from 'node:crypto';
 
@@ -9,9 +9,7 @@ export function loadAccess(environment = process.env) {
     const filename = environment[name];
     if (!filename || !path.isAbsolute(filename)) throw new Error(`${name} must name an absolute credential file`);
     try {
-      const value = fs.readFileSync(filename);
-      if (value.length > 4096) throw new Error();
-      return value;
+      return readBoundedFile(filename, 4096);
     } catch { throw new Error(`${name} could not be read as a credential file`); }
   }
   const token = credential('ACCESS_TOKEN_FILE').toString('utf8').trim();

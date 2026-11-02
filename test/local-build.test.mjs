@@ -1,10 +1,33 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
+import syncFs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import { createHash } from 'node:crypto';
 import { assets, buildLocal, projectRoot } from '../scripts/build-local.mjs';
+
+test('source replacement after path checks cannot enter the exported build', async t => {
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), 'speedial-build-race-'));
+  t.after(() => fs.rm(dir, { recursive: true, force: true }));
+  const input = path.join(dir, 'input'), output = path.join(dir, 'output');
+  await fs.mkdir(path.join(input, 'local'), { recursive: true });
+  const filename = path.join(input, 'local/index.html');
+  await fs.copyFile(path.join(projectRoot, 'local/index.html'), filename);
+  const originalOpen = syncFs.openSync;
+  let replaced = false;
+  t.mock.method(syncFs, 'openSync', (target, ...args) => {
+    if (target === filename && !replaced) {
+      replaced = true;
+      syncFs.renameSync(filename, filename + '.original');
+      syncFs.writeFileSync(filename, 'SYNTHETIC_FOREIGN_CONTENT');
+    }
+    return originalOpen(target, ...args);
+  });
+  await assert.rejects(buildLocal({ sourceRoot: input, outDir: output }), /changed before reading/);
+  assert.equal(replaced, true);
+  await assert.rejects(fs.stat(output), { code: 'ENOENT' });
+});
 
 test('public export only includes audited code assets, never seeds, secrets or repository history', async () => {
   const dir = await fs.mkdtemp(path.join(os.tmpdir(), 'speedial-build-'));

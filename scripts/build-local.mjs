@@ -2,6 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { createHash } from 'node:crypto';
+import { readBoundedFile } from '../bounded-file.mjs';
 
 export const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 export const assets = Object.freeze({
@@ -31,14 +32,13 @@ export async function buildLocal({ sourceRoot = projectRoot, outDir = path.join(
   for (const [name, source] of Object.entries(assets)) {
     const filename = path.join(sourceRoot, source);
     let stat;
-    try { stat = await fs.lstat(filename); }
+    try { stat = await fs.lstat(filename, { bigint: true }); }
     catch (error) { if (name === 'local.css' && error.code === 'ENOENT') continue; throw error; }
     if (!stat.isFile() || stat.isSymbolicLink()) throw new Error(`Public asset must be a regular file: ${source}`);
     const realRoot = await fs.realpath(sourceRoot);
     const real = await fs.realpath(filename);
     if (!real.startsWith(realRoot + path.sep)) throw new Error(`Public asset escapes source root: ${source}`);
-    const data = await fs.readFile(filename);
-    if (data.length > 2 * 1024 * 1024) throw new Error(`Unexpectedly large public code asset: ${source}`);
+    const data = readBoundedFile(filename, 2 * 1024 * 1024, { expectedStat: stat });
     prepared.push({ name, data, sourcePath: real });
   }
   const html = prepared.find(a => a.name === 'index.html').data.toString();

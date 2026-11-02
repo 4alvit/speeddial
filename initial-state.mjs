@@ -1,12 +1,11 @@
-import fs from 'node:fs';
+import { readBoundedFile } from './bounded-file.mjs';
 import { parseWebURL } from './safe-proxy.mjs';
 
 export function initialState(filename) {
   const empty = { revision: 1, layout: { rows: 4, columns: 5 }, openLinksIn: 'same-window', tiles: [] };
   if (!filename) return empty;
   try {
-    if (fs.statSync(filename).size > 16 * 1024 * 1024) throw new Error();
-    const input = JSON.parse(fs.readFileSync(filename, 'utf8'));
+    const input = JSON.parse(readBoundedFile(filename, 16 * 1024 * 1024).toString('utf8'));
     if (!Array.isArray(input.tiles) || input.tiles.length > 500) throw new Error();
     const layout = input.layout || empty.layout;
     if (![layout.rows, layout.columns].every(n => Number.isInteger(n) && n >= 1 && n <= 12)) throw new Error();

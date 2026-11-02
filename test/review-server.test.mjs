@@ -1,4 +1,4 @@
-import { createFixture, syntheticPng, syntheticTiles } from './fixtures.mjs';
+import { createFixture, syntheticPng } from './fixtures.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdtemp, copyFile, writeFile, readFile, rm, symlink } from 'node:fs/promises';
@@ -20,7 +20,7 @@ test('review: keyed access, persisted state, and stale screenshot cancellation',
   const fixture = createFixture(dir);
   let child;
   try {
-    await Promise.all(['server.mjs', 'safe-proxy.mjs', 'access.mjs', 'initial-state.mjs'].map(name => copyFile(path.join(root, name), path.join(dir, name))));
+    await Promise.all(['server.mjs', 'safe-proxy.mjs', 'access.mjs', 'initial-state.mjs', 'bounded-file.mjs'].map(name => copyFile(path.join(root, name), path.join(dir, name))));
     await symlink(path.join(root, 'public'), path.join(dir, 'public'));
     await writeFile(path.join(dir, 'screenshot.mjs'), `
       import fs from 'node:fs';
