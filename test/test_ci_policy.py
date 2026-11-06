@@ -5,6 +5,7 @@ import importlib.util
 from pathlib import Path
 import unittest
 import os
+import re
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -20,6 +21,30 @@ class WorkflowPolicyTests(unittest.TestCase):
 
     def test_actual_workflows_follow_reviewed_policy(self):
         POLICY.check_policy(self.sources)
+
+    def test_immutable_reference_comments_are_not_workflow_values(self):
+        for suffix in (" # main", "  # verified v1.2.3", "\t# metadata only"):
+            with self.subTest(suffix=suffix):
+                candidate = {
+                    name: re.sub(r"(@[0-9a-f]{40})(?:[ \t]+#[^\n]*)?",
+                                 lambda match: match.group(1) + suffix, text)
+                    for name, text in self.sources.items()
+                }
+                POLICY.check_policy(candidate)
+
+    def test_comment_suffix_cannot_relax_the_reference_or_job_boundary(self):
+        for replacement in ("main # " + POLICY.BROWSER_PIN,
+                            POLICY.BROWSER_PIN + "# main",
+                            POLICY.BROWSER_PIN + " trailing # main",
+                            POLICY.BROWSER_PIN + "0 # main",
+                            "a" * 40 + " # main",
+                            POLICY.BROWSER_PIN + " # main\n    secrets: inherit"):
+            with self.subTest(replacement=replacement):
+                candidate = deepcopy(self.sources)
+                candidate["ci.yml"] = candidate["ci.yml"].replace(
+                    POLICY.BROWSER_PIN, replacement, 1)
+                with self.assertRaises(POLICY.PolicyError):
+                    POLICY.check_policy(candidate)
 
     def test_unsafe_workflow_mutations_are_rejected(self):
         cases = [
