@@ -28,15 +28,19 @@ CI_RUNNER = (
     "${{ fromJSON(" + MODE + " && " + TRUSTED_EVENT + " && "
     "(vars.CI_RUNNER_LABELS || '[]') || '[\"ubuntu-latest\"]') }}"
 )
-BROWSER_PIN = "6b2d99519d513d2b871d2a845ddd6134dea4af2c"
+BROWSER_PIN = "1c7ae0892d4d34437fc0e094062f7e30b4f2ea1d"
 BROWSER_MATRIX = (
     "${{ " + MODE + " && " + TRUSTED_EVENT
     + " && '.github/browser-compatibility-linux.json' || '.github/browser-compatibility.json' }}"
 )
+SCOPE_PIN = '04d1a895fac608e5c972e49b127a1a792d7ad725'
+SCOPE_PATHS = '["wiki/API.md","wiki/Architecture.md","wiki/Configuration.md","wiki/Home.md","wiki/Localization.md","wiki/Operations.md","wiki/Process-and-Results.ar.md","wiki/Process-and-Results.bn.md","wiki/Process-and-Results.cs.md","wiki/Process-and-Results.de.md","wiki/Process-and-Results.es.md","wiki/Process-and-Results.fa.md","wiki/Process-and-Results.fr.md","wiki/Process-and-Results.he.md","wiki/Process-and-Results.hi.md","wiki/Process-and-Results.id.md","wiki/Process-and-Results.it.md","wiki/Process-and-Results.ja.md","wiki/Process-and-Results.ko.md","wiki/Process-and-Results.md","wiki/Process-and-Results.nl.md","wiki/Process-and-Results.pl.md","wiki/Process-and-Results.pt.md","wiki/Process-and-Results.ru.md","wiki/Process-and-Results.th.md","wiki/Process-and-Results.tr.md","wiki/Process-and-Results.uk.md","wiki/Process-and-Results.vi.md","wiki/Process-and-Results.zh-Hans.md","wiki/Process-and-Results.zh-Hant.md","wiki/Troubleshooting.md","wiki/User-Guide.md","README.ru.md","README.de.md","README.fr.md","README.es.md"]'
+SCOPE_FORCE = "${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}"
+SCOPE_RUN = "${{ needs.scope.outputs.run != 'false' || needs.scope.outputs.reason != 'documentation-only' }}"
 BROWSER_GATE = {
     "name": "Require all selected browser targets",
-    "env": "BROWSER_RESULT: ${{ needs.browser-compatibility.result }}",
-    "run": 'test "$BROWSER_RESULT" = success',
+    "env": "SCOPE_RESULT: ${{ needs.scope.result }} SCOPE_RUN: ${{ needs.scope.outputs.run }} SCOPE_REASON: ${{ needs.scope.outputs.reason }} BROWSER_RESULT: ${{ needs.browser-compatibility.result }}",
+    "run": 'test "$SCOPE_RESULT" = success && { if [ "$SCOPE_RUN" = false ] && [ "$SCOPE_REASON" = documentation-only ]; then test "$BROWSER_RESULT" = skipped; else test "$SCOPE_RUN" = true && test "$BROWSER_RESULT" = success; fi; }',
 }
 AUTOMATION_RUNNER = (
     "${{ github.event.repository.private && " + MODE
@@ -141,9 +145,15 @@ def check_policy(sources: dict[str, str]) -> None:
     require(compact(events["schedule"]) == "- cron: '23 6 * * 2'", "Keep the reviewed extended-browser schedule")
 
     jobs = mapping(ci["jobs"], 2, "ci.jobs")
-    require(set(jobs) == {"application", "browser-compatibility"}, "Unexpected CI job")
+    require(set(jobs) == {"scope", "application", "browser-compatibility"}, "Unexpected CI job")
+    exact(mapping(jobs["scope"], 4, "scope"), {
+        "uses": TOOLKIT + "change-scope.yml@" + SCOPE_PIN,
+        "with": "force-full: " + SCOPE_FORCE + " documentation-paths: '" + SCOPE_PATHS + "'",
+    }, "scope")
     exact(mapping(jobs["browser-compatibility"], 4, "browser"), {
         "uses": TOOLKIT + "typescript-ci.yml@" + BROWSER_PIN,
+        "needs": "scope",
+        "if": SCOPE_RUN,
         "with": "node-version: '24' run-node-ci: false force-full: true browser-matrix-file: " + BROWSER_MATRIX
                 + " browser-prepare-command: node scripts/browser-matrix.mjs && node --check test/frontend-smoke.mjs && node --check test/local-browser-smoke.mjs"
                 + " browser-test-command: node test/frontend-smoke.mjs && node test/local-browser-smoke.mjs"
@@ -155,7 +165,7 @@ def check_policy(sources: dict[str, str]) -> None:
         expected_keys = {"name", "runs-on", "timeout-minutes", "steps"}
         if key == "application":
             expected_keys |= {"needs", "if"}
-            require(job.get("needs") == "browser-compatibility" and job.get("if") == "${{ !cancelled() }}",
+            require(job.get("needs") == "[scope, browser-compatibility]" and job.get("if") == "${{ always() }}",
                     "Application aggregate must wait for all browser targets and handle failed/skipped results")
         require(set(job) == expected_keys, f"{key}: extra job privileges or conditions")
         require(job["name"] == name, f"{key}: required check was renamed")
@@ -182,9 +192,11 @@ def check_policy(sources: dict[str, str]) -> None:
                 require("with" not in step, f"{key}: run steps cannot contain action parameters")
         require(sum(s.get("uses", "").startswith("actions/checkout@") for s in source_steps) == 1, f"{key}: exactly one checkout is required")
     application = job_steps["application"]
-    for command in ("npm ci", "npm run check", POLICY_COMMAND):
+    for command in ("npm ci", "npm run check", POLICY_COMMAND, "node scripts/check-docs.mjs"):
         matches = [s for s in application if s.get("run") == command]
-        require(len(matches) == 1 and "if" not in matches[0], f"application: mandatory unconditional command missing: {command}")
+        require(len(matches) == 1, f"application: mandatory command missing: {command}")
+        expected = SCOPE_RUN if command in ("npm ci", "npm run check") else None
+        require(matches[0].get("if") == expected, f"application: incorrect command scope: {command}")
     # Entire credential-bearing jobs are allowlisted: no source checkout,
     # shell steps, arbitrary secrets, mutable workflow versions or extra flags.
     for filename, job_id in (("auto-approve.yml", "auto-approve"), ("auto-merge.yml", "auto-merge")):
