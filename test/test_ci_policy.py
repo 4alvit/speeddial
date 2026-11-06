@@ -54,8 +54,11 @@ class WorkflowPolicyTests(unittest.TestCase):
             ("ci.yml", "npm ci", "echo ${{ secrets['BOT_PAT'] }}", "indexed secret in PR code"),
             ("ci.yml", "browser-test-command: node test/frontend-smoke.mjs", "browser-test-command: echo skipped", "removed browser regression"),
             ("ci.yml", " && node test/local-browser-smoke.mjs", "", "removed local privacy regression"),
-            ("ci.yml", "needs: browser-compatibility", "needs: repository-configuration", "application passes before browser targets"),
+            ("ci.yml", "needs: [scope, browser-compatibility]", "needs: repository-configuration", "application passes before browser targets"),
             ("ci.yml", 'test "$BROWSER_RESULT" = success', 'test "$BROWSER_RESULT" != failure', "accept skipped browser targets"),
+            ("ci.yml", 'test "$SCOPE_RESULT" = success', "true", "accept failed scope"),
+            ("ci.yml", POLICY.SCOPE_RUN, "false", "remove reviewed scope condition"),
+            ("ci.yml", "run: node scripts/check-docs.mjs", "run: true", "remove real docs checks"),
             ("ci.yml", "force-full: true", "force-full: false", "documentation-only browser bypass"),
             ("ci.yml", POLICY.BROWSER_PIN, "main", "mutable browser workflow"),
             ("ci.yml", "browser-matrix-file: " + POLICY.BROWSER_MATRIX, "browser-matrix-file: .github/browser-compatibility-linux.json", "hosted checks lose native coverage"),
@@ -83,17 +86,24 @@ class WorkflowPolicyTests(unittest.TestCase):
                 with self.assertRaises(POLICY.PolicyError):
                     POLICY.check_policy(candidate)
 
-    def test_actual_aggregate_shell_command_accepts_only_success(self):
+    def test_actual_aggregate_shell_command_requires_the_exact_scope_vector(self):
         ci = POLICY.mapping(self.sources["ci.yml"], 0, "ci")
         jobs = POLICY.mapping(ci["jobs"], 2, "jobs")
         app = POLICY.mapping(jobs["application"], 4, "application")
         gate = POLICY.steps(app["steps"], "application.steps")[0]
-        for result in ("success", "failure", "cancelled", "skipped", "", "pending"):
-            with self.subTest(result=result):
-                completed = subprocess.run(["sh", "-c", gate["run"]],
-                                           env={**os.environ, "BROWSER_RESULT": result},
-                                           check=False, capture_output=True)
-                self.assertEqual(completed.returncode == 0, result == "success")
+        for scope_result in ("success", "failure", "cancelled", "skipped", ""):
+            for scope_run, reason in (("true", "changed-paths"), ("false", "documentation-only"),
+                                      ("false", ""), ("", "documentation-only")):
+                for browser in ("success", "failure", "cancelled", "skipped", ""):
+                    expected = scope_result == "success" and (
+                        scope_run == "true" and browser == "success" or
+                        scope_run == "false" and reason == "documentation-only" and browser == "skipped")
+                    env = {**os.environ, "SCOPE_RESULT": scope_result, "SCOPE_RUN": scope_run,
+                           "SCOPE_REASON": reason, "BROWSER_RESULT": browser}
+                    with self.subTest(scope=scope_result, run=scope_run, reason=reason, browser=browser):
+                        completed = subprocess.run(["sh", "-c", gate["run"]], env=env,
+                                                   check=False, capture_output=True)
+                        self.assertEqual(completed.returncode == 0, expected)
 
 
 if __name__ == "__main__":

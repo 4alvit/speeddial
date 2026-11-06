@@ -16,8 +16,15 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  scope:
+    uses: victron-venus/venus-os-ci-toolkit/.github/workflows/change-scope.yml@04d1a895fac608e5c972e49b127a1a792d7ad725 # main
+    with:
+      force-full: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
+      documentation-paths: '["wiki/API.md","wiki/Architecture.md","wiki/Configuration.md","wiki/Home.md","wiki/Localization.md","wiki/Operations.md","wiki/Process-and-Results.ar.md","wiki/Process-and-Results.bn.md","wiki/Process-and-Results.cs.md","wiki/Process-and-Results.de.md","wiki/Process-and-Results.es.md","wiki/Process-and-Results.fa.md","wiki/Process-and-Results.fr.md","wiki/Process-and-Results.he.md","wiki/Process-and-Results.hi.md","wiki/Process-and-Results.id.md","wiki/Process-and-Results.it.md","wiki/Process-and-Results.ja.md","wiki/Process-and-Results.ko.md","wiki/Process-and-Results.md","wiki/Process-and-Results.nl.md","wiki/Process-and-Results.pl.md","wiki/Process-and-Results.pt.md","wiki/Process-and-Results.ru.md","wiki/Process-and-Results.th.md","wiki/Process-and-Results.tr.md","wiki/Process-and-Results.uk.md","wiki/Process-and-Results.vi.md","wiki/Process-and-Results.zh-Hans.md","wiki/Process-and-Results.zh-Hant.md","wiki/Troubleshooting.md","wiki/User-Guide.md","README.ru.md","README.de.md","README.fr.md","README.es.md"]'
   browser-compatibility:
-    uses: victron-venus/venus-os-ci-toolkit/.github/workflows/typescript-ci.yml@6b2d99519d513d2b871d2a845ddd6134dea4af2c # main
+    needs: scope
+    if: ${{ needs.scope.outputs.run != 'false' || needs.scope.outputs.reason != 'documentation-only' }}
+    uses: victron-venus/venus-os-ci-toolkit/.github/workflows/typescript-ci.yml@1c7ae0892d4d34437fc0e094062f7e30b4f2ea1d # main
     with:
       node-version: '24'
       run-node-ci: false
@@ -27,8 +34,8 @@ jobs:
       browser-test-command: node test/frontend-smoke.mjs && node test/local-browser-smoke.mjs
       browser-extended: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
   application:
-    needs: browser-compatibility
-    if: ${{ !cancelled() }}
+    needs: [scope, browser-compatibility]
+    if: ${{ always() }}
     name: Application checks
     # Canonical runner_selection.py CI profile; forks and non-default dispatch stay hosted.
     runs-on: ${{ fromJSON((vars.CI_RUNNER_MODE == 'self-hosted' || vars.CI_RUNNER_MODE == 'k3s') && ((github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository) || (contains(fromJSON('["push","schedule","workflow_dispatch"]'), github.event_name) && github.ref == format('refs/heads/{0}', github.event.repository.default_branch))) && (vars.CI_RUNNER_LABELS || '[]') || '["ubuntu-latest"]') }}
@@ -36,8 +43,11 @@ jobs:
     steps:
       - name: Require all selected browser targets
         env:
+          SCOPE_RESULT: ${{ needs.scope.result }}
+          SCOPE_RUN: ${{ needs.scope.outputs.run }}
+          SCOPE_REASON: ${{ needs.scope.outputs.reason }}
           BROWSER_RESULT: ${{ needs.browser-compatibility.result }}
-        run: test "$BROWSER_RESULT" = success
+        run: test "$SCOPE_RESULT" = success && { if [ "$SCOPE_RUN" = false ] && [ "$SCOPE_REASON" = documentation-only ]; then test "$BROWSER_RESULT" = skipped; else test "$SCOPE_RUN" = true && test "$BROWSER_RESULT" = success; fi; }
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           persist-credentials: false
@@ -45,7 +55,10 @@ jobs:
         with:
           node-version: '24'
           cache: npm
-      - run: npm ci
-      - run: npm run check
+      - run: node scripts/check-docs.mjs
+      - if: ${{ needs.scope.outputs.run != 'false' || needs.scope.outputs.reason != 'documentation-only' }}
+        run: npm ci
+      - if: ${{ needs.scope.outputs.run != 'false' || needs.scope.outputs.reason != 'documentation-only' }}
+        run: npm run check
       - name: Validate CI privilege boundaries
         run: python3 -m unittest discover -s test -p 'test_ci_policy.py'

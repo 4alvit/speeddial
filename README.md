@@ -142,3 +142,14 @@ The canonical documentation is in [wiki/](wiki/Home.md). It covers use, API, arc
 The [organization profile guide](docs/organization-profile.md) includes a reusable README example for the organization itself. It describes the public app without exposing personal board data or private deployment details.
 
 This public repository starts with a clean source history and synthetic fixtures. The separate private operations repository retains historical private material and deployment recovery configuration; its history must not be copied here. Browser backups, server data and credentials remain outside Git. The source is publicly readable, but remains `UNLICENSED`; public visibility does not grant an open-source redistribution license.
+
+### Documentation-only validation
+
+CI uses the shared toolkit's complete-diff classifier for pull requests and
+pushes. Ordinary documentation edits keep `Application checks`, local links,
+SVG/diagram validation and workflow privilege-policy tests active, while
+skipping browser matrices, dependency installation and application tests.
+Unknown, source, fixture, workflow, mode or dependency changes keep full
+validation. Scheduled and manual qualification always runs the full browser
+matrix. The required aggregate rejects failed classification, unexpected
+skips and failed browser targets. CodeQL keeps its independent security checks.
