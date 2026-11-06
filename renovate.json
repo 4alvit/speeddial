@@ -1,0 +1,28 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "local>victron-venus/venus-os-ci-toolkit:renovate-fleet"
+  ],
+  "enabledManagers": [
+    "github-actions",
+    "custom.regex",
+    "custom.jsonata",
+    "dockerfile",
+    "npm"
+  ],
+  "ignorePaths": [
+    "**/vendor/**",
+    "**/node_modules/**",
+    "**/fixtures/**",
+    "tools/browser-compatibility/**"
+  ],
+  "packageRules": [
+    {
+      "description": "Historical browser generations advance only together with the reviewed compatibility inventory.",
+      "matchFileNames": [
+        "tools/browser-compatibility/**"
+      ],
+      "enabled": false
+    }
+  ]
+}
