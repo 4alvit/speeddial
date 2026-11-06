@@ -76,6 +76,14 @@ def mapping(block: str, indent: int, location: str) -> dict[str, str]:
             match = re.fullmatch(r"([A-Za-z][A-Za-z0-9_-]*):(?:[ ]+(.*))?", line[indent:])
             require(match is not None, f"{location}: use reviewed block mapping syntax")
             key, value = match.group(1), match.group(2) or ""
+            if key == "uses":
+                # A YAML comment is outside the immutable reference value.
+                reference = re.fullmatch(
+                    r"([A-Za-z0-9_.-]+/[A-Za-z0-9_./-]+@[0-9a-f]{40})[ \t]+#[^\r\n]*",
+                    value,
+                )
+                if reference is not None:
+                    value = reference.group(1)
             require(key not in result, f"{location}: duplicate key {key}")
             result[key] = value
         else:

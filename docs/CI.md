@@ -44,3 +44,7 @@ actionlint .github/workflows/*.yml
 ```
 
 Policy changes require corresponding implementation and negative-test updates. A passing source check is not proof of a deployment, a private-data restore or runner isolation.
+
+## Toolkit revision qualification
+
+Renovate updates ordinary Actions and application dependencies. The shared toolkit workflow references are fixed by `scripts/check-ci-policy.py`; update those references and its `PIN`/`BROWSER_PIN` constants together, then run `python3 -m unittest discover -s test -p 'test_ci_policy.py'` and the required browser/application CI. Security changes to these toolkit revisions follow the same reviewed procedure. Other security update lanes remain automatic. SHA metadata comments are accepted only after a valid immutable reference and do not relax the approved source, exact revision or credential boundaries.

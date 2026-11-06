@@ -23,6 +23,19 @@
         "tools/browser-compatibility/**"
       ],
       "enabled": false
+    },
+    {
+      "description": "Toolkit workflow revisions and exact PIN/BROWSER_PIN constants in scripts/check-ci-policy.py require one independently reviewed qualification.",
+      "matchManagers": [
+        "github-actions",
+        "custom.regex",
+        "custom.jsonata"
+      ],
+      "matchPackageNames": [
+        "victron-venus/venus-os-ci-toolkit",
+        "https://github.com/victron-venus/venus-os-ci-toolkit"
+      ],
+      "enabled": false
     }
   ]
 }
