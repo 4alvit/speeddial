@@ -241,7 +241,7 @@ def check_policy(sources: dict[str, str]) -> None:
                       "(contains(fromJSON('[\"workflow_run\",\"status\",\"workflow_dispatch\",\"schedule\"]'), github.event_name) && "
                       + DEFAULT_BRANCH + ")",
                 "uses": TOOLKIT + "auto-merge.yml@" + PIN,
-                "with": "native-auto-merge: false reviewed-merge: true reviewed-single-pass: true merge-method: merge "
+                "with": "native-auto-merge: false reviewed-merge: true reviewed-single-pass: true allow-owned-bot-actions-review: true merge-method: merge "
                         + "required-status-checks: " + APP_CHECK + " runner-labels: " + AUTOMATION_RUNNER,
                 "secrets": "BOT_PAT: ${{ secrets.BOT_PAT }}",
             }

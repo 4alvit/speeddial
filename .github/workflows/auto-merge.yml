@@ -34,6 +34,7 @@ jobs:
       native-auto-merge: false
       reviewed-merge: true
       reviewed-single-pass: true
+      allow-owned-bot-actions-review: true
       merge-method: merge
       required-status-checks: Application checks
       # Private callers need this explicit pool for completion/status wakeups;

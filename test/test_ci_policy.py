@@ -74,7 +74,7 @@ class WorkflowPolicyTests(unittest.TestCase):
             ("auto-merge.yml", "native-auto-merge: false", "native-auto-merge: true", "unprotected native queue"),
             ("auto-merge.yml", "reviewed-merge: true", "reviewed-merge: false", "disabled reviewed gate"),
             ("auto-merge.yml", "reviewed-single-pass: true", "reviewed-single-pass: false", "blocking metadata waiter"),
-            ("auto-merge.yml", "    with:", "    with:\n      allow-owned-bot-actions-review: true", "unreviewed reviewer exception"),
+            ("auto-merge.yml", "allow-owned-bot-actions-review: true", "allow-owned-bot-actions-review: false", "disabled independent owned-bot review"),
             ("auto-merge.yml", "    with:", "    uses: arbitrary/action@main\n    with:", "duplicate workflow key"),
             ("auto-merge.yml", "workflows: [CI, Auto Approve PRs]", "workflows: [Untrusted workflow]", "unreviewed completion source"),
         ]
