@@ -13,7 +13,7 @@ from pathlib import Path
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
-PIN = "65c3a644c440fcd5f95d94b6c2fa2be1df58249c"
+PIN = "0047a13b5eb79dfa770e31070a83e9696ddd36d1"
 TOOLKIT = "victron-venus/venus-os-ci-toolkit/.github/workflows/"
 AUTHORS = '["4alvit","californiantiramisu","dependabot[bot]","renovate[bot]"]'
 MODE = "(vars.CI_RUNNER_MODE == 'self-hosted' || vars.CI_RUNNER_MODE == 'k3s')"
