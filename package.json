@@ -18,7 +18,7 @@
     "fuzz:replay": "node fuzz/replay.mjs"
   },
   "dependencies": {
-    "playwright-core": "1.65.0"
+    "playwright-core": "1.65.1"
   },
   "description": "Browser-local Speed Dial with portable backups, multilingual settings, and optional self-hosted deployment",
   "license": "UNLICENSED",
