@@ -35,3 +35,4 @@ __pycache__/
 # Allowlisted public build and local publisher cache (never source or data).
 dist/
 .herenow/
+A*S.md
