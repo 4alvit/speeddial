@@ -31,11 +31,11 @@ python3 docs/render-diagrams.py --check
 
 The architecture, request, screenshot and tile-swap diagrams describe implementation with synthetic examples. The process and repository-boundary diagrams distinguish reusable public code from private deployment/data. They are not live telemetry or claims of deployment acceptance.
 
-Standalone SVGs in `docs/images/` cover CI, origin/profile separation and [private browser transfers](browser-migration.md). Edit their vector source directly. Every diagram needs a title, description and viewBox; preserve readable text, connected arrows and useful Markdown alt text. Do not invent performance measurements or test counts.
+Standalone SVGs in `docs/images/` cover CI, origin/profile separation and [private browser transfers](browser-migration.md); see the [image sources](images/README.md) for what each capture is and where it came from. Edit their vector source directly. Every diagram needs a title, description and viewBox; preserve readable text, connected arrows and useful Markdown alt text. Do not invent performance measurements or test counts.
 
 ## Validation
 
-See [CI runners and reviewed merging](CI.md) for runner selection, required checks and credential boundaries.
+See [CI runners and reviewed merging](CI.md) for runner selection, required checks and credential boundaries. Release candidates are also exercised by the bounded [RC fuzz workflow](fuzzing.md).
 
 Run `npm run check` for syntax, links, generated SVG consistency and application tests. Build the local edition with `npm run build:local`; use `CHROMIUM_PATH=/path/to/chromium npm run test:local` for isolated profile and complete-backup scenarios, and `npm run test:browser` for the server frontend.
 
